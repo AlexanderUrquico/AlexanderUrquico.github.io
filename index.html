@@ -3,174 +3,271 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alexander Urquico — Technical Profile</title>
-<meta name="description" content="Technical profile of Alexander Urquico, software engineer — offline-first mobile systems and ERP integration.">
-<meta name="color-scheme" content="light">
-<meta property="og:title" content="Alexander Urquico — Technical Profile">
-<meta property="og:description" content="Software engineer — offline-first mobile systems and ERP integration. Doc. AU-2026-01.">
+<title>Alexander Urquico — Software Engineer</title>
+<meta name="description" content="Android engineer building offline-first apps for warehouse, retail and finance teams, and the ERP integrations behind them.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#121211">
+<meta property="og:title" content="Alexander Urquico — Software Engineer">
+<meta property="og:description" content="Offline-first Android apps used across 120 branches, and the ERP integrations behind them.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f5f2ea'/><rect x='14' y='20' width='7' height='60' fill='%2316130f'/><rect x='26' y='20' width='4' height='60' fill='%2316130f'/><rect x='35' y='20' width='9' height='60' fill='%2316130f'/><rect x='49' y='20' width='4' height='60' fill='%2316130f'/><rect x='58' y='20' width='6' height='60' fill='%2316130f'/><rect x='69' y='20' width='3' height='60' fill='%2316130f'/><rect x='77' y='20' width='8' height='60' fill='%2316130f'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='6' fill='%23121211'/><rect x='10' y='10' width='44' height='44' rx='3' fill='none' stroke='%23F2C230' stroke-width='4'/><text x='32' y='41' text-anchor='middle' font-family='monospace' font-size='20' font-weight='700' fill='%23F2C230'>AU</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..800;1,62..125,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ════════════════════════════════════════════════════════════════
-   AU-2026-01  ·  stylesheet
-   ════════════════════════════════════════════════════════════════ */
+/* ───────────────────────────── tokens ───────────────────────────── */
 :root{
-  --paper:#f5f2ea;
-  --desk:#ddd8cb;
-  --ink:#16130f;
-  --ink-2:#4b463d;
-  --ink-3:#7a7366;
-  --rule:#c6bfb0;
-  --rule-2:#e0dacc;
-  --red:#a3251b;
-  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
-  --cond:"Arial Narrow","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --serif:Georgia,"Iowan Old Style","Times New Roman",Times,serif;
-  --mono:ui-monospace,Menlo,Consolas,"Liberation Mono",monospace;
+  /* surfaces: warm charcoal, never pure black */
+  --bg:#121211;
+  --bg-2:#181816;
+  --bg-3:#1f1f1c;
+  --line:#2b2a26;
+  --line-2:#3a3934;
+
+  /* text */
+  --tx:#ecebe6;
+  --tx-2:#adaba3;
+  --tx-3:#8b8980;
+
+  /* accents: safety yellow leads; mint and coral carry status only */
+  --yel:#f2c230;
+  --yel-dim:#f2c23022;
+  --mint:#6fd3b0;
+  --coral:#ff7a59;
+
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+
+  --r:3px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --t:180ms;
+
+  --pad:clamp(20px,4vw,56px);
+  --max:1240px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{
-  background:var(--desk);
-  color:var(--ink);
-  font:400 15px/1.62 var(--serif);
+  background:var(--bg);color:var(--tx);
+  font:400 16.5px/1.62 var(--sans);
+  font-stretch:100%;
   -webkit-font-smoothing:antialiased;
-  padding:34px 18px 80px;
+  text-rendering:optimizeLegibility;
 }
-a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--red)}
-a:hover{color:var(--red)}
-:focus-visible{outline:2px solid var(--red);outline-offset:2px}
-.skip{position:absolute;left:-9999px}
-.skip:focus{left:10px;top:10px;background:var(--ink);color:var(--paper);padding:7px 13px;z-index:9}
-
-/* ─────────── sheet ─────────── */
-.sheet{
-  max-width:1000px;margin:0 auto;background:var(--paper);
-  border:1px solid var(--rule);
-  box-shadow:0 1px 0 rgba(0,0,0,.05),0 22px 48px -30px rgba(20,17,12,.55);
-  padding:44px 52px 60px;
+/* paper-grain texture, barely there */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-@media(max-width:760px){ body{padding:12px 8px 40px} .sheet{padding:26px 20px 40px} }
+main,header,footer{position:relative;z-index:1}
+img{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--yel);outline-offset:3px;border-radius:2px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-9999px;top:8px;z-index:99;background:var(--yel);color:#121211;padding:8px 12px;font-weight:600;text-decoration:none}
+.skip:focus{left:8px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono)}
 
-/* ─────────── masthead ─────────── */
-.mast{display:flex;align-items:flex-start;gap:26px;border-bottom:3px double var(--ink);padding-bottom:16px}
-.mast h1{font:700 30px/1.04 var(--cond);letter-spacing:.055em;text-transform:uppercase}
-.mast .sub{font:400 12.5px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);margin-top:7px}
-.mast .who{font:400 14px/1.5 var(--serif);color:var(--ink-2);margin-top:11px;max-width:46ch}
-.barcode{margin-left:auto;flex:none;text-align:right}
-.bars{display:flex;align-items:flex-end;gap:1px;height:44px;justify-content:flex-end}
-.bars i{display:block;background:var(--ink);height:100%}
-.barcode .num{font:400 9.5px/1 var(--mono);letter-spacing:.22em;color:var(--ink-2);margin-top:5px}
-@media(max-width:700px){.barcode{display:none}}
+/* text link: underline that fills on hover */
+.tl{color:var(--tx);text-decoration:none;background:linear-gradient(var(--yel),var(--yel)) 0 100%/100% 1px no-repeat;padding-bottom:1px;transition:background-size var(--t) var(--ease),color var(--t)}
+.tl:hover{background-size:100% 100%;color:#121211}
 
-/* ─────────── document control strip ─────────── */
-.dc{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ink)}
-@media(max-width:700px){.dc{grid-template-columns:repeat(2,1fr)}}
-.dc > div{padding:9px 12px 9px 0;border-right:1px solid var(--rule-2)}
-.dc > div:last-child{border-right:0}
-.dc .k{font:700 9px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-.dc .v{font:400 13px/1.4 var(--mono);margin-top:3px}
+/* safety-tape swatch, used sparingly */
+.tape{display:inline-block;width:22px;height:8px;background:repeating-linear-gradient(-45deg,var(--yel) 0 4px,transparent 4px 8px);vertical-align:middle}
 
-/* ─────────── purpose band (§0) ─────────── */
-.purpose{display:grid;grid-template-columns:1fr 272px;gap:34px;padding:24px 0 26px;border-bottom:1px solid var(--rule)}
-@media(max-width:820px){.purpose{grid-template-columns:1fr;gap:20px}}
-.purpose h2{margin-bottom:10px}
-.purpose p{margin-bottom:9px;max-width:64ch}
-.purpose p.first{font-size:16.5px}
-.panel{border:1px solid var(--ink);padding:14px 16px;background:rgba(255,255,255,.5);align-self:start}
-.panel dl{display:grid;grid-template-columns:1fr;gap:9px}
-.panel dt{font:700 9px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-.panel dd{font:400 13.5px/1.45 var(--serif);margin-top:2px}
-.panel dd.avail{font:700 13px/1.4 var(--sans);letter-spacing:.03em;color:var(--red);text-transform:uppercase}
-.panel .hr{height:1px;background:var(--rule-2);margin:12px 0}
+/* status lamp */
+.st{display:inline-flex;align-items:center;gap:7px;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+.st.ok{color:var(--mint)}
+.st.test{color:var(--yel)}
+.st.test::before{background:transparent;box-shadow:inset 0 0 0 1.5px currentColor}
 
-/* ─────────── contents ─────────── */
-.toc{margin:26px 0 34px}
-.toc ol{list-style:none}
-.toc li{display:flex;align-items:baseline;gap:8px;padding:3.5px 0;font:400 14px/1.5 var(--serif)}
-.toc .n{font:400 12px/1 var(--mono);color:var(--ink-3);width:30px;flex:none}
-.toc .dots{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-4px)}
-.toc a{border:0}
-.toc a:hover{color:var(--red)}
-.toc .pg{font:400 11.5px/1 var(--mono);color:var(--ink-3);flex:none}
+/* location code tag */
+.code{font:500 11.5px/1 var(--mono);letter-spacing:.04em;color:#121211;background:var(--yel);padding:4px 6px 3px;border-radius:2px;white-space:nowrap}
+.code.ghost{background:transparent;color:var(--yel);box-shadow:inset 0 0 0 1px var(--yel)}
 
-/* ─────────── sections ─────────── */
-.sec{display:grid;grid-template-columns:116px 1fr;gap:26px;padding:30px 0 0;border-top:1px solid var(--rule);margin-top:30px}
-.sec > div{min-width:0}
-@media(max-width:760px){.sec{grid-template-columns:1fr;gap:10px}}
-.sec > div > .num{font:700 13px/1.3 var(--sans);letter-spacing:.1em;color:var(--ink-3)}
-.marg{font:400 11.5px/1.55 var(--sans);color:var(--ink-3);margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-2)}
-.marg b{display:block;color:var(--red);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:10px;margin-bottom:3px}
-@media(max-width:760px){.marg{display:none}}
+/* buttons: rectangular, not pills */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 14.5px/1 var(--sans);text-decoration:none;padding:13px 18px;border-radius:var(--r);transition:background var(--t),color var(--t),box-shadow var(--t),transform var(--t)}
+.btn .ar{transition:transform var(--t) var(--ease)}
+.btn:hover .ar{transform:translateX(3px)}
+.btn-pri{background:var(--yel);color:#121211}
+.btn-pri:hover{background:#ffd34d}
+.btn-sec{color:var(--tx);box-shadow:inset 0 0 0 1px var(--line-2)}
+.btn-sec:hover{box-shadow:inset 0 0 0 1px var(--tx-2)}
 
-h2{font:700 19px/1.25 var(--cond);letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px}
-h3{font:700 12.5px/1.4 var(--sans);letter-spacing:.13em;text-transform:uppercase;margin:26px 0 9px;color:var(--ink)}
-h3 .hn{color:var(--ink-3);margin-right:8px;font-family:var(--mono);letter-spacing:0;font-weight:400}
-p{margin-bottom:11px;max-width:74ch}
-p.lead{font-size:16.5px}
-ul.spec{list-style:none;margin:10px 0 14px;max-width:74ch}
-ul.spec li{position:relative;padding-left:19px;margin-bottom:6px}
-ul.spec li::before{content:"—";position:absolute;left:0;color:var(--ink-3)}
-ol.dfx{list-style:none;counter-reset:d;margin:10px 0 14px;max-width:74ch;font:400 15px/1.62 var(--serif)}
-ol.dfx li{position:relative;padding-left:30px;margin-bottom:9px;counter-increment:d}
-ol.dfx li::before{content:"(" counter(d) ")";position:absolute;left:0;font:400 13px/1.7 var(--mono);color:var(--ink-3);letter-spacing:0}
+/* ───────────────────────────── top bar ───────────────────────────── */
+.top{position:sticky;top:0;z-index:20;background:rgba(18,18,17,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font:600 15px/1 var(--sans);letter-spacing:-.005em;white-space:nowrap}
+.brand b{font:600 11px/1 var(--mono);color:#121211;background:var(--yel);padding:5px 5px 4px;border-radius:2px;letter-spacing:.02em}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{display:flex;align-items:baseline;gap:7px;padding:8px 11px;text-decoration:none;color:var(--tx-2);font:500 14px/1 var(--sans);border-radius:var(--r);transition:color var(--t),background var(--t);position:relative}
+.nav a span{font:400 10.5px/1 var(--mono);color:var(--tx-3);transition:color var(--t)}
+.nav a:hover{color:var(--tx);background:var(--bg-3)}
+.nav a[aria-current="true"]{color:var(--tx)}
+.nav a[aria-current="true"] span{color:var(--yel)}
+.nav a[aria-current="true"]::after{content:"";position:absolute;left:11px;right:11px;bottom:-11px;height:2px;background:var(--yel)}
+.avail{font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mint);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.avail::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint)}
 
-/* ─────────── tables ─────────── */
-table{width:100%;border-collapse:collapse;margin:12px 0 8px;font:400 13.5px/1.5 var(--serif)}
-caption{caption-side:top;text-align:left;font:700 10px/1.4 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);padding-bottom:6px}
-th{font:700 9.5px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);text-align:left;padding:6px 10px 6px 0;border-bottom:2px solid var(--ink);white-space:nowrap}
-td{padding:7px 10px 7px 0;border-bottom:1px solid var(--rule-2);vertical-align:top}
-tbody tr:nth-child(even){background:rgba(22,19,15,.028)}
-td.mono{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums}
-th.mono{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em}
-td.r{text-align:right}
-.tbl-wrap{overflow-x:auto}
-table th[scope="row"]{white-space:normal}
+/* ───────────────────────────── hero ───────────────────────────── */
+.hero{padding:clamp(44px,6.5vw,88px) 0 clamp(40px,5.5vw,68px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:end}
+.eyebrow{display:flex;align-items:center;gap:12px;font:500 12px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--tx-2);margin-bottom:26px}
+h1{font:620 clamp(32px,3.9vw,52px)/1.06 var(--sans);font-stretch:108%;letter-spacing:-.02em;max-width:18ch}
+h1 em{font-style:normal;color:var(--yel)}
+.lede{font-size:clamp(17px,1.5vw,19px);line-height:1.58;color:var(--tx-2);max-width:46ch;margin-top:26px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 
-/* ─────────── callouts ─────────── */
-.call{border:1px solid var(--ink);border-left-width:5px;padding:12px 15px;margin:16px 0;max-width:74ch;background:rgba(255,255,255,.42)}
-.call .lab{font:700 10px/1.4 var(--sans);letter-spacing:.19em;text-transform:uppercase;margin-bottom:5px}
-.call p{margin:0;font-size:14px}
-.call.caution{border-color:var(--red)}
-.call.caution .lab{color:var(--red)}
+/* the "on the floor" readout */
+.floor{border-top:2px solid var(--yel);background:var(--bg-2)}
+.floor-head{display:flex;justify-content:space-between;align-items:baseline;padding:14px 18px 12px;border-bottom:1px solid var(--line);font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx-2)}
+.floor-head span:last-child{color:var(--tx-3)}
+.floor ol{list-style:none}
+.floor li{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:15px 18px;border-bottom:1px solid var(--line)}
+.floor li a{display:contents;text-decoration:none}
+.floor .nm{font:560 15px/1.25 var(--sans)}
+.floor .nm small{display:block;font:400 12px/1.4 var(--mono);color:var(--tx-3);margin-top:4px;letter-spacing:.01em}
+.floor li:hover{background:var(--bg-3)}
+.floor li:hover .nm{color:var(--yel)}
+.floor-foot{display:flex;flex-wrap:wrap;gap:6px 18px;padding:13px 18px 15px;font:400 12px/1.4 var(--mono);color:var(--tx-2)}
+.floor-foot b{color:var(--tx);font-weight:500}
 
-/* ─────────── figures ─────────── */
-figure{margin:18px 0 8px;max-width:74ch}
-.plate{border:1px solid var(--rule);background:#fff;padding:20px 16px}
-figcaption{font:400 11px/1.5 var(--sans);color:var(--ink-3);margin-top:7px;letter-spacing:.03em}
-figcaption b{font-weight:700;color:var(--ink-2);letter-spacing:.09em;text-transform:uppercase;font-size:10px;margin-right:7px}
-svg{display:block;width:100%;height:auto}
-svg text{font-family:var(--sans);fill:var(--ink)}
-svg .lt{fill:var(--ink-3);letter-spacing:.08em}
-svg .bx{fill:none;stroke:var(--ink);stroke-width:1.1}
-svg .bx-d{fill:none;stroke:var(--ink-3);stroke-width:1;stroke-dasharray:3 3}
-svg .ar{stroke:var(--ink);stroke-width:1.1;fill:none}
+/* ───────────────────────────── measured change ───────────────────────────── */
+.impact{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.impact .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.imp{padding:34px 0 36px}
+.imp + .imp{border-left:1px solid var(--line);padding-left:clamp(24px,4vw,48px)}
+.impact .wrap > .imp:first-child{padding-right:clamp(24px,4vw,48px)}
+.imp-k{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx-2);display:flex;justify-content:space-between;gap:12px}
+.imp-k span:last-child{color:var(--tx-3)}
+.imp-h{font:600 clamp(22px,2.3vw,28px)/1.15 var(--sans);font-stretch:104%;letter-spacing:-.012em;margin:14px 0 22px;max-width:30ch}
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:62px 1fr auto;gap:14px;align-items:center;font:400 12px/1 var(--mono);color:var(--tx-3)}
+.bar .track{height:14px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 10%)}
+.bar .fill{height:100%;background:var(--line-2)}
+.bar.after .fill{background:var(--yel)}
+.bar .v{font:500 15px/1 var(--mono);color:var(--tx);min-width:64px;text-align:right}
+.bar.after .v{color:var(--yel)}
+.imp-sub{display:grid;grid-template-columns:1fr 1fr}
+.imp-sub > div{border-top:1px solid var(--line)}
+.imp-sub > div{padding:26px 0 30px}
+.imp-sub > div + div{border-left:1px solid var(--line);padding-left:clamp(24px,4vw,48px)}
+.big{font:500 clamp(36px,4vw,52px)/1 var(--mono);letter-spacing:-.04em;color:var(--tx)}
+.big small{font-size:.38em;letter-spacing:0;color:var(--tx-3);margin-left:6px}
+.imp-sub p{color:var(--tx-2);font-size:14.5px;margin-top:10px;max-width:34ch}
+.swap{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;font:600 clamp(19px,1.9vw,23px)/1.2 var(--sans);margin-top:4px}
+.swap s{color:var(--tx-3);text-decoration-color:var(--coral);text-decoration-thickness:2px;font-weight:500}
+.swap i{font-style:normal;color:var(--yel);font-family:var(--mono);font-weight:400}
 
-/* ─────────── interface plates ─────────── */
-.demo-grid{display:grid;gap:24px;margin-top:14px}
-@media(min-width:860px){.demo-grid{grid-template-columns:250px 1fr;gap:34px;align-items:start}}
-.selector{display:flex;flex-wrap:wrap;border:1px solid var(--ink);width:fit-content;max-width:100%;margin-top:6px}
-.selector button{font:700 10px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;padding:8px 13px;border-right:1px solid var(--ink);background:none;cursor:pointer;color:var(--ink-2)}
-.selector button:last-child{border-right:0}
-.selector button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
-.handset{border:1px solid var(--rule);background:#fff;padding:10px}
-.hs-top{display:flex;justify-content:space-between;font:400 9px/1 var(--mono);color:var(--ink-3);padding-bottom:8px;letter-spacing:.08em}
-.screen{position:relative;height:498px;overflow:hidden;background:#fff;border:1px solid var(--rule-2);font:400 11.5px/1.42 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#1B1F26}
+/* ───────────────────────────── section header ───────────────────────────── */
+.sec{padding:clamp(64px,8vw,112px) 0 0}
+.sh{display:grid;grid-template-columns:auto auto 1fr auto;align-items:baseline;gap:18px;margin-bottom:clamp(30px,4vw,48px)}
+.sh .ix{font:500 13px/1 var(--mono);color:var(--yel)}
+.sh h2{font:640 clamp(26px,3vw,38px)/1.05 var(--sans);font-stretch:112%;letter-spacing:-.018em}
+.sh .rule{height:1px;background:var(--line);align-self:center}
+.sh .meta{font:400 12px/1.4 var(--mono);color:var(--tx-3);text-align:right}
+
+/* ───────────────────────────── work: case files ───────────────────────────── */
+.file{border-top:1px solid var(--line-2);padding:0 0 clamp(48px,6vw,80px)}
+.file + .file{margin-top:0}
+.label{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.label h3{font:620 clamp(20px,2vw,24px)/1.15 var(--sans);font-stretch:106%;letter-spacing:-.01em}
+.label .lm{font:400 12.5px/1 var(--mono);color:var(--tx-3)}
+.fbody{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,5vw,72px);padding-top:32px}
+.fbody > *{min-width:0}
+
+.spec{display:grid;grid-template-columns:auto 1fr;font-size:14px;align-self:start;position:sticky;top:84px}
+.spec dt,.spec dd{padding:10px 0;border-bottom:1px solid var(--line)}
+.spec dt{font:400 11px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tx-3);padding-right:18px}
+.spec dd{color:var(--tx);line-height:1.45}
+.spec dd .mono{font-size:13.5px}
+
+.fmain > * + *{margin-top:22px}
+.fmain .lead{font:450 clamp(18px,1.6vw,21px)/1.5 var(--sans);color:var(--tx);max-width:58ch}
+.fmain p{color:var(--tx-2);max-width:64ch}
+.fmain p b{color:var(--tx);font-weight:600}
+.kicker{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx-3);margin-bottom:-8px}
+.notes{list-style:none;border-top:1px solid var(--line)}
+.notes li{display:grid;grid-template-columns:28px 1fr;padding:11px 0;border-bottom:1px solid var(--line);color:var(--tx-2);font-size:15.5px;line-height:1.5;transition:color var(--t)}
+.notes li::before{content:counter(n,decimal-leading-zero);counter-increment:n;font:400 11.5px/1.9 var(--mono);color:var(--tx-3);transition:color var(--t)}
+.notes{counter-reset:n}
+.notes li:hover{color:var(--tx)}
+.notes li:hover::before{color:var(--yel)}
+
+/* limits strip */
+.limits{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:14px 16px;background:var(--bg-2);border-left:2px solid var(--line-2);font-size:14.5px;color:var(--tx-2)}
+.limits .tag{display:flex;align-items:center;gap:8px;font:500 11px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx)}
+
+/* figure: flow line */
+.flow{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 20px 16px}
+.flow svg{display:block;width:100%;height:auto}
+.flow .fscroll{overflow-x:auto;scrollbar-width:thin}
+.flow figcaption,.fig figcaption{font:400 12px/1.5 var(--mono);color:var(--tx-3);margin-top:12px}
+.flow text{font-family:var(--sans)}
+
+/* glyph moment for OCR story */
+.glyph{display:grid;grid-template-columns:auto auto auto;justify-content:start;align-items:center;gap:clamp(14px,2.4vw,28px);padding:26px 0 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.glyph .g{font:500 clamp(46px,7vw,92px)/1 var(--mono);letter-spacing:.02em}
+.glyph .g.bad{color:var(--coral)}
+.glyph .g.bad mark{background:none;color:var(--coral);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:10px}
+.glyph .arrow{font:400 22px/1 var(--mono);color:var(--tx-3)}
+.glyph-cap{grid-column:1/-1;font:400 12.5px/1.55 var(--mono);color:var(--tx-3);margin-top:14px;max-width:70ch}
+
+/* latency comparison */
+.lat{display:grid;gap:9px}
+.lat .row{display:grid;grid-template-columns:150px 1fr 72px;gap:14px;align-items:center;font:400 12.5px/1.3 var(--mono);color:var(--tx-2)}
+.lat .tr{height:10px;background:var(--bg-3)}
+.lat .fl{height:100%}
+.lat .net .fl{background:var(--mint)}
+.lat .hash .fl{background:var(--coral)}
+.lat .row span:last-child{text-align:right;color:var(--tx)}
+
+/* defects table */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl caption{caption-side:top;text-align:left;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx-3);padding-bottom:12px}
+.tbl th{font:500 11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tx-3);text-align:left;padding:0 18px 10px 0;border-bottom:1px solid var(--line-2)}
+.tbl td{padding:12px 18px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--tx-2);line-height:1.45}
+.tbl td:first-child{color:var(--tx);font-weight:500;width:26%}
+.tbl tbody tr{transition:background var(--t)}
+.tbl tbody tr:hover{background:var(--bg-2)}
+.tbl tbody tr:hover td:first-child{box-shadow:inset 2px 0 0 var(--coral);padding-left:10px}
+.tbl td:first-child{transition:padding var(--t),box-shadow var(--t)}
+.tbl code{font:400 12.5px/1 var(--mono);color:var(--tx);background:var(--bg-3);padding:2px 5px;border-radius:2px}
+.tscroll{overflow-x:auto}
+
+/* ───────────────────────────── handheld ───────────────────────────── */
+.hh{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,3fr);gap:clamp(24px,4vw,56px);align-items:start}
+.hh > *{min-width:0}
+.apps{display:flex;border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;width:fit-content;max-width:100%}
+.apps button{padding:10px 14px;font:500 13px/1 var(--sans);color:var(--tx-2);border-right:1px solid var(--line-2);transition:background var(--t),color var(--t);white-space:nowrap}
+.apps button:last-child{border-right:0}
+.apps button:hover{color:var(--tx);background:var(--bg-3)}
+.apps button[aria-selected="true"]{background:var(--yel);color:#121211}
+.steps{list-style:none;margin-top:22px;border-top:1px solid var(--line)}
+.steps button{display:grid;grid-template-columns:34px 1fr;gap:4px;width:100%;text-align:left;padding:13px 0 13px 0;border-bottom:1px solid var(--line);color:var(--tx-2);font:500 15px/1.35 var(--sans);transition:color var(--t),padding var(--t) var(--ease),background var(--t);position:relative}
+.steps button span{font:400 11.5px/1.7 var(--mono);color:var(--tx-3)}
+.steps button:hover{color:var(--tx);padding-left:6px}
+.steps button[aria-current="step"]{color:var(--tx);padding-left:12px;background:var(--bg-2)}
+.steps button[aria-current="step"]::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--yel)}
+.steps button[aria-current="step"] span{color:var(--yel)}
+.cap{position:sticky;top:96px}
+.cap .ck{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx-3)}
+.cap h4{font:600 20px/1.2 var(--sans);font-stretch:104%;margin:10px 0 12px}
+.cap p{color:var(--tx-2);font-size:15px;line-height:1.6}
+.cap .disc{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font:400 12px/1.55 var(--mono);color:var(--tx-3)}
+.dev{background:var(--bg-2);border:1px solid var(--line);padding:10px;border-radius:6px;max-width:300px;margin:0 auto}
+.dev-top{display:flex;justify-content:space-between;font:400 10.5px/1 var(--mono);color:var(--tx-3);padding:2px 4px 9px;letter-spacing:.04em}
+.screen{position:relative;height:540px;overflow:hidden;background:#fff;border-radius:3px;color:#1B1F26;font:400 11.5px/1.42 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
 .scr{display:none;height:100%;flex-direction:column}
-.scr.on{display:flex}
-.step-h{font:700 12.5px/1.4 var(--sans);letter-spacing:.11em;text-transform:uppercase;margin-bottom:8px}
-.step-h .sn{font-family:var(--mono);color:var(--red);letter-spacing:0;margin-right:9px}
-.step-c{font:400 14.5px/1.62 var(--serif);color:var(--ink-2);min-height:7em;max-width:70ch}
-.ctrl{display:flex;align-items:center;gap:9px;margin-top:16px;flex-wrap:wrap;border-top:1px solid var(--rule-2);padding-top:12px}
-.ctrl button.mv{border:1px solid var(--ink);background:none;cursor:pointer;font:700 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:7px 12px}
-.ctrl button.mv:hover{background:var(--ink);color:var(--paper)}
-.pips{display:flex;gap:4px}
-.pips button{width:20px;height:6px;border:1px solid var(--ink);background:none;padding:0;cursor:pointer}
-.pips button[aria-current="true"]{background:var(--ink)}
-.ctrl .of{margin-left:auto;font:400 11px/1 var(--mono);color:var(--ink-3)}
+.scr.on{display:flex;animation:scrIn 200ms var(--ease)}
+@keyframes scrIn{from{opacity:.4}to{opacity:1}}
 
-/* in-screen app UI */
-.sbar{height:24px;flex:none;display:flex;align-items:flex-end;justify-content:space-between;padding:0 11px 3px;font:600 8.5px sans-serif;background:var(--app);color:#fff}
-.abar{flex:none;background:var(--app);color:#fff;padding:8px 11px 10px;display:flex;align-items:center;gap:8px}
+/* in-screen app UI (depicts the real apps) */
+.sbar{height:25px;flex:none;display:flex;align-items:flex-end;justify-content:space-between;padding:0 11px 4px;font:600 8.5px sans-serif;background:var(--app);color:#fff}
+.abar{flex:none;background:var(--app);color:#fff;padding:9px 11px 11px;display:flex;align-items:center;gap:8px}
 .abar b{font-size:12.5px;font-weight:600}
 .abar .sp{margin-left:auto;opacity:.85}
 .pbody{flex:1;padding:10px;background:#F4F5F7;display:flex;flex-direction:column;gap:7px;overflow:hidden}
@@ -205,667 +302,786 @@ svg .ar{stroke:var(--ink);stroke-width:1.1;fill:none}
 .scanbox .lz{position:absolute;left:0;right:0;top:50%;height:2px;background:#e5484d}
 .scanbox .hint{position:absolute;bottom:11px;left:0;right:0;text-align:center;color:#fff;font-size:9.5px;opacity:.82}
 
-/* ─────────── colophon ─────────── */
-.colophon{border-top:3px double var(--ink);margin-top:38px;padding-top:14px;display:flex;flex-wrap:wrap;gap:16px;font:400 11px/1.6 var(--sans);color:var(--ink-3);letter-spacing:.04em}
-.colophon .sp{margin-left:auto}
+/* ───────────────────────────── practice ───────────────────────────── */
+.prac{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
+.prac article{padding:28px 0 32px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:52px 1fr;gap:4px}
+.prac article:nth-child(odd){padding-right:clamp(20px,4vw,48px)}
+.prac article:nth-child(even){border-left:1px solid var(--line);padding-left:clamp(20px,4vw,48px)}
+.prac .n{font:500 13px/1.6 var(--mono);color:var(--yel)}
+.prac h3{font:620 19px/1.3 var(--sans);font-stretch:104%}
+.prac p{grid-column:2;color:var(--tx-2);font-size:15.5px;margin-top:8px;max-width:48ch}
+.prac .ref{grid-column:2;margin-top:12px;font:400 12px/1 var(--mono);color:var(--tx-3)}
+.prac .ref a{color:var(--tx-2);text-decoration:none;border-bottom:1px solid var(--line-2);transition:color var(--t),border-color var(--t)}
+.prac .ref a:hover{color:var(--yel);border-color:var(--yel)}
 
-/* ─────────── print ─────────── */
-@media print{
-  body{background:#fff;padding:0}
-  .sheet{box-shadow:none;border:0;max-width:none;padding:0}
-  .sec,figure,table,.call{break-inside:avoid}
-  .selector,.ctrl{display:none}
-  a{border:0}
+/* ───────────────────────────── toolkit matrix ───────────────────────────── */
+.mx{width:100%;border-collapse:collapse;font-size:14.5px}
+.mx th{font:500 11px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tx-3);text-align:left;padding:0 16px 12px 0;border-bottom:1px solid var(--line-2);white-space:nowrap}
+.mx th.c,.mx td.c{text-align:center;width:64px;padding-right:0}
+.mx td{padding:9px 16px 9px 0;border-bottom:1px solid var(--line);vertical-align:middle;color:var(--tx-2)}
+.mx tr.grp td{padding:22px 0 8px;border-bottom:1px solid var(--line-2);font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--yel);background:none}
+.mx tr.grp:hover{background:none}
+.mx tbody tr:first-child.grp td{padding-top:6px}
+.mx td:first-child{color:var(--tx);font-weight:540;white-space:nowrap;width:220px}
+.mx tbody tr{transition:background var(--t)}
+.mx tbody tr:hover{background:var(--bg-2)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--yel);vertical-align:middle}
+.dot.no{background:transparent;box-shadow:inset 0 0 0 1px var(--tx-3);opacity:.55}
+.mx-note{margin-top:18px;font:400 12.5px/1.6 var(--mono);color:var(--tx-3);max-width:80ch}
+
+/* ───────────────────────────── contact ───────────────────────────── */
+.contact{margin-top:clamp(72px,9vw,128px);border-top:1px solid var(--line-2);background:var(--bg-2)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);padding-top:clamp(44px,6vw,72px);padding-bottom:clamp(44px,6vw,72px)}
+.contact h2{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx-3);margin-bottom:20px}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.mail a{font:600 clamp(26px,3.6vw,46px)/1.1 var(--sans);font-stretch:104%;letter-spacing:-.02em;text-decoration:none;color:var(--tx);background:linear-gradient(var(--yel),var(--yel)) 0 100%/0 3px no-repeat;transition:background-size 250ms var(--ease);padding-bottom:4px;word-break:break-all}
+.mail a:hover{background-size:100% 3px}
+.copy{font:500 12px/1 var(--mono);letter-spacing:.04em;padding:9px 12px;border-radius:var(--r);box-shadow:inset 0 0 0 1px var(--line-2);color:var(--tx-2);transition:color var(--t),box-shadow var(--t),background var(--t)}
+.copy:hover{color:var(--tx);box-shadow:inset 0 0 0 1px var(--tx-2)}
+.copy.done{color:#121211;background:var(--mint);box-shadow:none}
+.contact p.note{color:var(--tx-2);max-width:48ch;margin-top:22px}
+.links{list-style:none;border-top:1px solid var(--line);align-self:end}
+.links a{display:grid;grid-template-columns:100px 1fr auto;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding var(--t) var(--ease),color var(--t)}
+.links a span:first-child{font:400 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tx-3)}
+.links a span:nth-child(2){color:var(--tx)}
+.links a span:last-child{color:var(--tx-3);transition:transform var(--t) var(--ease),color var(--t)}
+.links a:hover{padding-left:8px}
+.links a:hover span:last-child{color:var(--yel);transform:translate(2px,-2px)}
+
+footer.foot .wrap{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:20px;padding-bottom:28px;font:400 12px/1.5 var(--mono);color:var(--tx-3)}
+footer.foot .sp{margin-left:auto}
+
+/* ───────────────────────────── responsive ───────────────────────────── */
+@media (max-width:1100px){
+  .hh{grid-template-columns:minmax(0,1fr) 300px}
+  .cap{grid-column:1;position:static}
+  .hh .devcol{grid-row:1 / span 2;grid-column:2}
+}
+@media (max-width:980px){
+  .avail{display:none}
+  .hero .wrap{grid-template-columns:1fr;align-items:start}
+  .floor{max-width:620px}
+  .impact .wrap{grid-template-columns:1fr}
+  .imp + .imp{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .impact .wrap > .imp:first-child{padding-right:0}
+  .fbody{grid-template-columns:minmax(0,1fr)}
+  .spec{position:static;grid-template-columns:repeat(2,auto 1fr);column-gap:0}
+  .spec dt{padding-right:12px}
+  .spec dd{padding-right:22px}
+  .contact .wrap{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .top .wrap{flex-wrap:wrap;height:auto;padding-top:12px;gap:0}
+  .nav{order:3;width:calc(100% + var(--pad)*2);margin:10px calc(var(--pad)*-1) 0;padding:0 var(--pad);overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--line)}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{padding:12px 12px 13px}
+  .nav a[aria-current="true"]::after{bottom:0}
+  .sh{grid-template-columns:auto 1fr;row-gap:8px}
+  .sh .rule{display:none}
+  .sh .meta{grid-column:1/-1;text-align:left}
+  .label{grid-template-columns:auto 1fr;row-gap:8px}
+  .label .lm{grid-column:1/-1;order:3}
+  .label .st{grid-column:2;justify-self:start}
+  .spec{grid-template-columns:auto 1fr}
+  .imp-sub{grid-template-columns:1fr}
+  .imp-sub > div + div{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .bar{grid-template-columns:48px 1fr auto}
+  .prac{grid-template-columns:1fr}
+  .prac article:nth-child(even){border-left:0;padding-left:0}
+  .prac article:nth-child(odd){padding-right:0}
+  .prac article{grid-template-columns:40px 1fr}
+  .hh{grid-template-columns:minmax(0,1fr)}
+  .hh .devcol{grid-row:auto;grid-column:auto;order:2}
+  .hh .listcol{order:1}
+  .cap{order:3}
+  .steps{display:flex;overflow-x:auto;gap:0;border-top:0;scrollbar-width:none;margin-top:14px}
+  .steps::-webkit-scrollbar{display:none}
+  .steps li{flex:none}
+  .steps button{grid-template-columns:auto;padding:10px 14px;border:1px solid var(--line);border-right:0;font-size:13.5px;white-space:nowrap;background:transparent}
+  .steps li:last-child button{border-right:1px solid var(--line)}
+  .steps button span{display:none}
+  .steps button:hover{padding-left:14px}
+  .steps button[aria-current="step"]{padding-left:14px;background:var(--bg-3)}
+  .steps button[aria-current="step"]::before{left:0;right:0;top:auto;bottom:0;width:auto;height:2px}
+  .dev{max-width:330px;margin:0 auto;width:100%}
+  .flow svg{min-width:560px}
+  .cap .disc{display:none}
+  .lat .row{grid-template-columns:1fr 64px}
+  .lat .row .tr{grid-column:1/-1;grid-row:2}
+  .glyph{grid-template-columns:auto auto auto}
+  .mx td:first-child{white-space:normal;width:auto}
+  .links a{grid-template-columns:84px 1fr auto}
+  footer.foot .sp{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
 <body>
-<a class="skip" href="#s1">Skip to §1</a>
+<a class="skip" href="#main">Skip to content</a>
 
-<main class="sheet">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Alexander Urquico, back to top"><b>AU</b>Alexander Urquico</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work"><span>01</span>Work</a>
+      <a href="#handheld"><span>02</span>Handheld</a>
+      <a href="#practice"><span>03</span>Practice</a>
+      <a href="#toolkit"><span>04</span>Toolkit</a>
+      <a href="#contact"><span>05</span>Contact</a>
+    </nav>
+    <span class="avail">Available</span>
+  </div>
+</header>
 
-  <!-- ═══════════ masthead ═══════════ -->
-  <header class="mast">
+<main id="main">
+
+<!-- ═════════════════════════ hero ═════════════════════════ -->
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="wrap">
     <div>
-      <h1>Alexander Urquico</h1>
-      <div class="sub">Software Engineer · Technical Profile</div>
-      <p class="who">Offline-first mobile systems and the ERP integrations behind them. Sole developer of three internal systems in daily production use.</p>
-    </div>
-    <div class="barcode" aria-hidden="true">
-      <div class="bars">
-        <i style="width:3px"></i><i style="width:1px"></i><i style="width:2px"></i><i style="width:4px"></i>
-        <i style="width:1px"></i><i style="width:1px"></i><i style="width:3px"></i><i style="width:2px"></i>
-        <i style="width:1px"></i><i style="width:4px"></i><i style="width:2px"></i><i style="width:1px"></i>
-        <i style="width:3px"></i><i style="width:1px"></i><i style="width:2px"></i><i style="width:2px"></i>
-        <i style="width:4px"></i><i style="width:1px"></i><i style="width:1px"></i><i style="width:3px"></i>
-        <i style="width:2px"></i><i style="width:1px"></i><i style="width:4px"></i><i style="width:2px"></i>
-        <i style="width:1px"></i><i style="width:3px"></i><i style="width:1px"></i><i style="width:2px"></i>
-        <i style="width:4px"></i><i style="width:1px"></i><i style="width:2px"></i><i style="width:3px"></i>
-      </div>
-      <div class="num">AU-2026-01</div>
-    </div>
-  </header>
-
-  <!-- ═══════════ document control ═══════════ -->
-  <section class="dc" aria-label="Document control">
-    <div><div class="k">Document</div><div class="v">AU-2026-01</div></div>
-    <div><div class="k">Revision</div><div class="v">3</div></div>
-    <div><div class="k">Issued</div><div class="v">2026-09</div></div>
-    <div><div class="k">Status</div><div class="v">Open to offers</div></div>
-  </section>
-
-  <!-- ═══════════ §0 purpose ═══════════ -->
-  <section class="purpose" id="s0">
-    <div>
-      <h2>Purpose</h2>
-      <p class="first">This document describes the working experience of a software engineer who builds Android and Flutter applications for warehouse, retail and finance operations, and connects them to an ERP system.</p>
-      <p>Three systems are covered. All three are in daily use across <b>120 branches</b> of a retail and distribution company in the Philippines, by roughly <b>240 to 360 staff</b>, and all three were built by one engineer — database schema, application, integration and production release.</p>
-      <p>Section 3 shows the interfaces themselves. Section 5 sets out how the work is approached.</p>
-    </div>
-    <aside class="panel">
-      <dl>
-        <div><dt>Availability</dt><dd class="avail">Open to opportunities</dd></div>
-        <div><dt>Position sought</dt><dd>Software engineer — mobile and backend</dd></div>
-        <div><dt>Location</dt><dd>Calamba, Laguna, Philippines</dd></div>
-      </dl>
-      <div class="hr"></div>
-      <dl>
-        <div><dt>Electronic mail</dt><dd><a href="mailto:alexurquico@gmail.com">alexurquico@gmail.com</a></dd></div>
-        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/alexurquico/" rel="noopener">/in/alexurquico</a></dd></div>
-        <div><dt>Repositories</dt><dd><a href="https://github.com/AlexanderUrquico" rel="noopener">AlexanderUrquico</a></dd></div>
-      </dl>
-    </aside>
-  </section>
-
-  <!-- ═══════════ contents ═══════════ -->
-  <nav class="toc" aria-label="Contents">
-    <h3 style="margin-top:22px"><span class="hn">§</span>Contents</h3>
-    <ol>
-      <li><span class="n">0.0</span><a href="#s0">Purpose</a><span class="dots"></span><span class="pg">01</span></li>
-      <li><span class="n">1.0</span><a href="#s1">General description</a><span class="dots"></span><span class="pg">01</span></li>
-      <li><span class="n">2.0</span><a href="#s2">Systems</a><span class="dots"></span><span class="pg">02</span></li>
-      <li><span class="n">2.1</span><a href="#s21">Inventory management</a><span class="dots"></span><span class="pg">02</span></li>
-      <li><span class="n">2.2</span><a href="#s22">Deposit slip uploader</a><span class="dots"></span><span class="pg">04</span></li>
-      <li><span class="n">2.3</span><a href="#s23">Warehouse transfer</a><span class="dots"></span><span class="pg">05</span></li>
-      <li><span class="n">3.0</span><a href="#s3">Operator interface plates</a><span class="dots"></span><span class="pg">07</span></li>
-      <li><span class="n">4.0</span><a href="#s4">Capability matrix</a><span class="dots"></span><span class="pg">08</span></li>
-      <li><span class="n">5.0</span><a href="#s5">Engineering practice</a><span class="dots"></span><span class="pg">09</span></li>
-      <li><span class="n">6.0</span><a href="#s6">Service information</a><span class="dots"></span><span class="pg">10</span></li>
-      <li><span class="n">A</span><a href="#sa">Appendix — revision history</a><span class="dots"></span><span class="pg">10</span></li>
-    </ol>
-  </nav>
-
-  <!-- ═══════════ §1 ═══════════ -->
-  <section class="sec" id="s1">
-    <div>
-      <div class="num">1.0</div>
-      <div class="marg"><b>Note</b>All three systems described in §2 were designed, built and released by a single engineer.</div>
-    </div>
-    <div>
-      <h2>General description</h2>
-      <p class="lead">Software engineer working on offline-first mobile applications and the integrations that connect them to an enterprise resource planning system.</p>
-      <p>The operating environment is the deciding constraint. These applications run in warehouse aisles, retail counters and delivery bays, where network coverage is intermittent and the operator cannot wait for it. Every entry is therefore written to an on-device database first; transmission to the ERP is a separate, deliberate action taken by the operator, and every submission is designed to be safe if repeated.</p>
-      <p>Responsibility on each system spans database schema, API contract, application architecture, security review and production release, together with the architecture and hand-over documentation held in the repository.</p>
-
-      <div class="tbl-wrap">
-        <table>
-          <caption>Table 1.1 — Deployment summary</caption>
-          <thead>
-            <tr><th>System</th><th>Platform</th><th class="mono">Version</th><th>State</th><th class="mono">Sites</th><th class="mono">Users/day</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Inventory management</td><td>Flutter / Android</td><td class="mono">1.4.6</td><td>Production</td><td class="r mono">120</td><td class="r mono">240–360</td></tr>
-            <tr><td>Deposit slip uploader</td><td>Kotlin / Android</td><td class="mono">1.2.2</td><td>Production</td><td class="r mono">120</td><td class="r mono">~120</td></tr>
-            <tr><td>Warehouse transfer</td><td>Kotlin / Android</td><td class="mono">0.1</td><td>Prototype</td><td class="r mono">—</td><td class="r mono">—</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="tbl-wrap">
-        <table>
-          <caption>Table 1.2 — Measured change</caption>
-          <thead><tr><th>Measure</th><th>Before</th><th>After</th></tr></thead>
-          <tbody>
-            <tr><td>Count-to-posted cycle</td><td>About one week, counted and tallied by hand</td><td>Within two days, counted and posted to the ERP</td></tr>
-            <tr><td>Deposit verification</td><td>Head office waited for the physical slips to arrive</td><td>Captured and submitted from the branch, same day</td></tr>
-            <tr><td>Deposit slips handled</td><td>No system in place</td><td>About 240 per day (120 branches, 2 each)</td></tr>
-          </tbody>
-        </table>
+      <p class="eyebrow"><span class="tape" aria-hidden="true"></span>Software engineer · Calamba, Laguna, PH</p>
+      <h1 id="hero-h">I write the Android software <em>120 branches</em> count their stock with.</h1>
+      <p class="lede">Offline-first apps for warehouse, retail and finance teams, the ERP integrations behind them, and the edge cases that decide whether people trust the numbers.</p>
+      <div class="actions">
+        <a class="btn btn-pri" href="#work">See the work <span class="ar" aria-hidden="true">→</span></a>
+        <a class="btn btn-sec" href="#contact">Get in touch</a>
       </div>
     </div>
-  </section>
 
-  <!-- ═══════════ §2 ═══════════ -->
-  <section class="sec" id="s2">
-    <div><div class="num">2.0</div></div>
-    <div>
-      <h2>Systems</h2>
-      <p>Each subsection states the operating problem, the design decisions taken, and the reasoning behind them. Endpoint names, host addresses and credentials are withheld; the systems are internal company property.</p>
-
-      <h3 id="s21"><span class="hn">2.1</span>Inventory management</h3>
-      <p>An offline-first inventory platform deployed to 120 branches and used across warehouse, distribution, audit and retail operations. It reduced the full count-to-posted cycle — counting through to posting in the ERP — from about one week of manual tallying to within two days. Operators scan barcodes to count stock, move it between locations and approve transfers between stores. The role returned at sign-in determines which home screen loads and which workflows exist at all, so a branch clerk and a warehouse picker never encounter each other's tools.</p>
-
-      <ul class="spec">
-        <li>Barcode counting, with a manual-search fallback that is written to a log. Barcodes are damaged in ordinary use; recording each fallback makes the pattern of unscannable stock visible rather than invisible.</li>
-        <li>Receiving, store-to-store transfer, batch picking and transfer approval, with batch and expiry tracking throughout.</li>
-        <li>Reporting to PDF and Excel, including variance against configured inventory limits.</li>
-        <li>Layering enforced by rule: presentation code never reaches the database directly.</li>
-      </ul>
-
-      <figure>
-        <div class="plate">
-          <svg viewBox="0 0 560 210" role="img" aria-label="Diagram: screens to cubits to repositories to an on-device database, with an operator confirmation gate before transmission to the ERP across the network boundary">
-            <rect class="bx" x="8"   y="18" width="118" height="38"/>
-            <rect class="bx" x="150" y="18" width="118" height="38"/>
-            <rect class="bx" x="292" y="18" width="118" height="38"/>
-            <rect class="bx" x="434" y="18" width="118" height="38"/>
-            <text x="67"  y="41" text-anchor="middle" font-size="12">Screens</text>
-            <text x="209" y="41" text-anchor="middle" font-size="12">Cubits</text>
-            <text x="351" y="41" text-anchor="middle" font-size="12">Repositories</text>
-            <text x="493" y="41" text-anchor="middle" font-size="12">SQLite</text>
-            <path class="ar" d="M126 37 L146 37"/><path class="ar" d="M141 33 l6 4 -6 4"/>
-            <path class="ar" d="M268 37 L288 37"/><path class="ar" d="M283 33 l6 4 -6 4"/>
-            <path class="ar" d="M410 37 L430 37"/><path class="ar" d="M425 33 l6 4 -6 4"/>
-
-            <path class="ar" d="M493 56 L493 84"/><path class="ar" d="M489 79 l4 6 4 -6"/>
-            <rect class="bx-d" x="396" y="86" width="156" height="30"/>
-            <text x="474" y="105" text-anchor="middle" font-size="9.5" class="lt" style="fill:#a3251b">OPERATOR CONFIRMS</text>
-            <path class="ar" d="M493 116 L493 158"/><path class="ar" d="M489 153 l4 6 4 -6"/>
-
-            <path class="bx-d" d="M8 137 L560 137"/>
-            <text x="8" y="132" font-size="9.5" class="lt">NETWORK BOUNDARY</text>
-            <text x="8" y="152" font-size="9.5" class="lt">BELOW — REQUIRES CONNECTIVITY</text>
-
-            <rect class="bx" x="434" y="160" width="118" height="34"/>
-            <text x="493" y="182" text-anchor="middle" font-size="12">SAP B1</text>
-          </svg>
-        </div>
-        <figcaption><b>Fig. 2.1</b>Data path. Counting completes entirely above the network boundary; transmission is a separate operator action.</figcaption>
-      </figure>
-
-      <div class="call">
-        <div class="lab">Notice</div>
-        <p>Because transmission is a distinct act rather than an automatic one, a connection lost mid-aisle costs no operator their count.</p>
-      </div>
-
-      <h3 id="s22"><span class="hn">2.2</span>Deposit slip uploader</h3>
-      <p>Closes the interval between a branch depositing cash and the finance department seeing evidence of it. The operator photographs the deposit slip; on-device text recognition reads the bank, reference number, amount and date; the operator confirms the fields rather than typing them. No system preceded it: head office could not verify a deposit until the physical slips reached them. Capture and submission now happen at the branch on the day of deposit, across roughly 240 slips a day.</p>
-
-      <div class="tbl-wrap">
-        <table>
-          <caption>Table 2.2 — Field extraction</caption>
-          <thead><tr><th>Field</th><th>Source</th><th>Confirmed by</th><th>Failure mode guarded</th></tr></thead>
-          <tbody>
-            <tr><td>Bank</td><td>On-device recognition</td><td>Operator</td><td>Layout differs per bank</td></tr>
-            <tr><td>Reference no.</td><td>On-device recognition</td><td>Operator</td><td>Character confusion</td></tr>
-            <tr><td>Amount</td><td>Strict per-bank pattern</td><td>Operator</td><td>Reference number read as an amount</td></tr>
-            <tr><td>Deposit date</td><td>On-device recognition</td><td>Operator</td><td>Ambiguous date order</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="call caution">
-        <div class="lab">Caution</div>
-        <p>Amount is the hazardous field. A permissive pattern will read a reference number as a small currency value and corrupt a finance record silently. Patterns are strict and written per bank, and every extracted field remains editable before submission — recognition proposes, a person confirms.</p>
-      </div>
-
-      <ul class="spec">
-        <li>Recognition runs wholly on the handset; the photograph is not transmitted anywhere to be interpreted.</li>
-        <li>Up to three slips per submission, as a day's takings are frequently banked more than once.</li>
-        <li>Images are downscaled and compressed before upload, for branches on constrained connections.</li>
-        <li>Server address is configured per device, so branches on differing hosts run one build.</li>
-      </ul>
-
-      <h3 id="s23"><span class="hn">2.3</span>Warehouse transfer</h3>
-      <p>A ground-up replacement for the transfer module of a legacy desktop application, intended for pickers who are on foot in the aisles while the workstation is not. Discovery was carried out before any replacement was proposed: the existing system was audited, its actual behaviour documented, and two defects identified.</p>
-
-      <ol class="dfx">
-        <li><b>Over-transfer.</b> A quantity check validated against the requested quantity rather than the remaining quantity. A partially picked line could therefore be picked again, beyond its total.</li>
-        <li><b>Duplicate documents.</b> The submission path could post twice for one physical movement. On a slow connection, a second tap produced a second stock document.</li>
+    <aside class="floor" aria-label="Systems and their current status">
+      <div class="floor-head"><span>On the floor</span><span>Oct 2026</span></div>
+      <ol>
+        <li><a href="#a01"><span class="code">A-01</span><span class="nm">Inventory management<small>Flutter · v1.4.9 · 120 branches</small></span><span class="st ok">Live</span></a></li>
+        <li><a href="#a02"><span class="code">A-02</span><span class="nm">Deposit slip uploader<small>Kotlin · v1.2.3 · 120 branches</small></span><span class="st ok">Live</span></a></li>
+        <li><a href="#a03"><span class="code">A-03</span><span class="nm">Warehouse transfer<small>Kotlin · v0.6 · pre-pilot</small></span><span class="st test">Test</span></a></li>
       </ol>
+      <div class="floor-foot"><span><b>387</b> tests</span><span>CI on every push</span><span>Sentry in all three</span></div>
+    </aside>
+  </div>
+</section>
 
-      <figure>
-        <div class="plate">
-          <svg viewBox="0 0 560 168" role="img" aria-label="Diagram: the handset writes to a staging outbox under a unique submission key; a worker posts each key to the ERP exactly once, so a repeated submission of the same key changes nothing">
-            <rect class="bx" x="8" y="54" width="112" height="42"/>
-            <text x="64" y="72" text-anchor="middle" font-size="12">Handset</text>
-            <text x="64" y="87" text-anchor="middle" font-size="9.5" class="lt">SUBMIT</text>
+<!-- ═════════════════════════ measured change ═════════════════════════ -->
+<section class="impact" aria-label="Measured change">
+  <div class="wrap">
+    <div class="imp">
+      <div class="imp-k"><span>Stock count, A-01</span><span>count → posted to ERP</span></div>
+      <p class="imp-h">A branch stock count went from a week of hand tallying to two days, posting included.</p>
+      <div class="bars" role="img" aria-label="Before: about 7 days. After: within 2 days.">
+        <div class="bar"><span>Before</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="v">~7 days</span></div>
+        <div class="bar after"><span>After</span><div class="track"><div class="fill" style="width:28.6%"></div></div><span class="v">≤2 days</span></div>
+      </div>
+    </div>
+    <div class="imp">
+      <div class="imp-k"><span>Sign-in, A-02</span><span>entry-level phone</span></div>
+      <p class="imp-h">Sign-in went from about a minute to under a second.</p>
+      <div class="bars" role="img" aria-label="Before: about 60 seconds. After: under 1 second.">
+        <div class="bar"><span>Before</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="v">~60 s</span></div>
+        <div class="bar after"><span>After</span><div class="track"><div class="fill" style="width:1.6%"></div></div><span class="v">&lt;1 s</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap imp-sub">
+    <div>
+      <div class="imp-k"><span>Deposit verification, A-02</span></div>
+      <div class="swap" style="margin-top:14px"><s>after the slips are delivered</s><i>→</i><span>same day</span></div>
+      <p>Head office used to wait for the paper slips to arrive before it could verify a deposit.</p>
+    </div>
+    <div>
+      <div class="imp-k"><span>Volume, A-02</span></div>
+      <div class="big" style="margin-top:14px">240<small>slips / day</small></div>
+      <p>Read on the phone, confirmed by branch staff, across 120 branches.</p>
+    </div>
+  </div>
+</section>
 
-            <path class="ar" d="M120 75 L164 75"/><path class="ar" d="M159 71 l6 4 -6 4"/>
+<!-- ═════════════════════════ work ═════════════════════════ -->
+<section class="sec" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="sh"><span class="ix">01</span><h2 id="work-h">Work</h2><span class="rule" aria-hidden="true"></span><span class="meta">Three systems · Candy Corner Philippines<br>Lead on all three, sole developer on two</span></div>
 
-            <rect class="bx" x="166" y="44" width="168" height="62"/>
-            <text x="250" y="66" text-anchor="middle" font-size="12">Staging outbox</text>
-            <text x="250" y="81" text-anchor="middle" font-size="9.5" class="lt">UNIQUE SUBMISSION KEY</text>
-            <text x="250" y="96" text-anchor="middle" font-size="9.5" class="lt">7f3a··c19</text>
+    <!-- A-01 -->
+    <article class="file" id="a01" aria-labelledby="a01-h">
+      <header class="label">
+        <span class="code">A-01</span>
+        <h3 id="a01-h">Inventory management</h3>
+        <span class="lm">Flutter · Android · v1.4.9</span>
+        <span class="st ok">Production</span>
+      </header>
+      <div class="fbody">
+        <dl class="spec">
+          <dt>Role</dt><dd>Lead developer, ~79% of commits</dd>
+          <dt>Since</dt><dd class="mono">May 2024</dd>
+          <dt>Sites</dt><dd class="mono">120 branches</dd>
+          <dt>Daily users</dt><dd class="mono">240–360</dd>
+          <dt>Tests</dt><dd class="mono">90</dd>
+          <dt>Stack</dt><dd>Flutter, Dart, SQLite, flutter_bloc, bcrypt, Sentry, SAP Business One, n8n</dd>
+        </dl>
+        <div class="fmain">
+          <p class="lead">Stock counting, receiving, transfers, batch picking and store-to-store approvals for four roles: branch, warehouse, distribution and audit. The role you sign in with decides which screens exist at all.</p>
+          <p>Counted lines go into the phone's own database and stay there until the ERP accepts them. A dropped connection mid-aisle costs nobody their count. Sign-in works offline too, against users synced to the handset, with bcrypt hashing running in a background isolate so the screen doesn't freeze.</p>
 
-            <path class="ar" d="M334 75 L378 75"/><path class="ar" d="M373 71 l6 4 -6 4"/>
-            <rect class="bx" x="380" y="54" width="82" height="42"/>
-            <text x="421" y="79" text-anchor="middle" font-size="12">Worker</text>
+          <figure class="flow">
+            <div class="fscroll"><svg viewBox="0 0 640 132" role="img" aria-label="Scan or search, then entry form, then SQLite on the phone. The operator confirms. The upload crosses the network boundary to the ERP API.">
+              <g font-size="13" fill="#ecebe6">
+                <rect x="1" y="12" width="140" height="40" fill="none" stroke="#3a3934"/>
+                <text x="71" y="37" text-anchor="middle">Scan or search</text>
+                <rect x="181" y="12" width="140" height="40" fill="none" stroke="#3a3934"/>
+                <text x="251" y="37" text-anchor="middle">Entry form</text>
+                <rect x="361" y="12" width="140" height="40" fill="none" stroke="#f2c230"/>
+                <text x="431" y="37" text-anchor="middle" fill="#f2c230">SQLite, on phone</text>
+                <rect x="541" y="80" width="98" height="40" fill="none" stroke="#3a3934"/>
+                <text x="590" y="105" text-anchor="middle">ERP API</text>
+              </g>
+              <g stroke="#8b8980" fill="none" stroke-width="1.2">
+                <path d="M141 32 H175"/><path d="M170 28 l6 4 -6 4"/>
+                <path d="M321 32 H355"/><path d="M350 28 l6 4 -6 4"/>
+                <path d="M501 32 H590 V74"/><path d="M586 69 l4 6 4 -6"/>
+              </g>
+              <path d="M0 66 H640" stroke="#3a3934" stroke-dasharray="3 4"/>
+              <g font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing=".06em">
+                <text x="0" y="86" fill="#8b8980">NETWORK BOUNDARY</text>
+                <text x="0" y="104" fill="#8b8980">ABOVE: WORKS OFFLINE</text>
+                <text x="506" y="24" fill="#f2c230">OPERATOR CONFIRMS</text>
+              </g>
+            </svg></div>
+            <figcaption>Fig. A-01 · Local rows are cleared only after the ERP accepts them.</figcaption>
+          </figure>
 
-            <path class="ar" d="M462 75 L500 75"/><path class="ar" d="M495 71 l6 4 -6 4"/>
-            <rect class="bx" x="502" y="54" width="50" height="42"/>
-            <text x="527" y="79" text-anchor="middle" font-size="11">ERP</text>
+          <p class="kicker">Built since August 2026</p>
+          <ul class="notes">
+            <li>A report queue for unscannable barcodes. It works out the cause from what the scanner actually saw (a damaged label, or an item missing from the ERP) instead of from the counter's answer, which proved unreliable.</li>
+            <li>Expected stock per branch, cached and usable offline. If a unit conversion isn't certain, it shows the ERP's own figure rather than a wrong one.</li>
+            <li>A minimum-version gate that blocks outdated builds without locking out phones that are offline.</li>
+            <li>Sentry monitoring of errors and failed uploads, tagged by branch, role and workflow, with no personal data.</li>
+          </ul>
 
-            <path class="bx-d" style="stroke:#a3251b" d="M64 54 C64 16, 250 16, 250 42"/>
-            <path style="fill:#a3251b" d="M246 37 l4 6 4 -6"/>
-            <text x="150" y="14" text-anchor="middle" font-size="9.5" class="lt" style="fill:#a3251b">REPEATED SUBMIT — SAME KEY</text>
-
-            <text x="250" y="128" text-anchor="middle" font-size="9.5" class="lt">WRITING AN EXISTING KEY AGAIN CHANGES NOTHING</text>
-            <text x="466" y="128" text-anchor="middle" font-size="9.5" class="lt">POSTS EXACTLY ONCE</text>
-          </svg>
+          <div class="limits"><span class="tag"><span class="tape" aria-hidden="true"></span>Limits</span><span>Most screens still read the database directly. Only the newer features are built as separate services. Uploads have no duplicate protection and are retried by hand.</span></div>
         </div>
-        <figcaption><b>Fig. 2.3</b>Submission path. Duplicate posting is prevented by structure rather than by discipline.</figcaption>
-      </figure>
+      </div>
+    </article>
 
-      <h3><span class="hn">2.3.1</span>Design decisions</h3>
-      <ul class="spec">
-        <li>Writes are made through the ERP's supported service layer, never by direct SQL, so business rules and vendor support remain intact.</li>
-        <li>Submissions are written to a staging outbox bearing a submission key; a worker posts each key onward exactly once.</li>
-        <li>Reads are served by stored procedures, so listing stock does not consume an ERP licence seat.</li>
-        <li>The operator scans once to establish position, then enters the quantity. Scanning every unit is defensible on paper and abandoned by the second hour of a shift.</li>
-      </ul>
+    <!-- A-02 -->
+    <article class="file" id="a02" aria-labelledby="a02-h">
+      <header class="label">
+        <span class="code">A-02</span>
+        <h3 id="a02-h">Deposit slip uploader</h3>
+        <span class="lm">Kotlin · Compose · v1.2.3, v1.3.0 rolling out</span>
+        <span class="st ok">Production</span>
+      </header>
+      <div class="fbody">
+        <dl class="spec">
+          <dt>Role</dt><dd>Sole developer</dd>
+          <dt>Since</dt><dd class="mono">Oct 2024</dd>
+          <dt>Sites</dt><dd class="mono">120 branches</dd>
+          <dt>Volume</dt><dd class="mono">~240 slips / day</dd>
+          <dt>Tests</dt><dd class="mono">115</dd>
+          <dt>Stack</dt><dd>Kotlin, Jetpack Compose, MVVM, ML Kit text recognition, Retrofit, encrypted preferences, Sentry</dd>
+        </dl>
+        <div class="fmain">
+          <p class="lead">Branch staff photograph the bank deposit slip. The phone reads the bank, reference number, amount and date itself, and staff confirm the fields instead of typing them. It works on BDO, BPI and PNB slips.</p>
+          <p>Before this there was no system. Head office could not check a deposit until the paper slip arrived. Now it gets the slip <b>the same day</b> it's deposited.</p>
 
-      <div class="call">
-        <div class="lab">Recommendation as recorded</div>
-        <p>A full rewrite was documented as <i>not yet formally justified</i>. Several of the defects were correctable within the existing application, and the recommendation was recorded as such.</p>
+          <div class="glyph" role="img" aria-label="The month OCT was misread as 0C7">
+            <span class="g">OCT</span><span class="arrow" aria-hidden="true">→</span><span class="g bad"><mark>0</mark>C<mark>7</mark></span>
+            <p class="glyph-cap">A cleanup step that turned stray letters into digits also turned "OCT" into "0C7", so five months of slips had no date. The fix matches against the raw text, corrects only the number groups, and then picks from ranked date candidates. Text captured from real slips is now replayed as unit tests.</p>
+          </div>
+
+          <p class="kicker">The minute-long sign-in</p>
+          <p>Sign-in on the cheap phones branches use took about a minute. The network looked guilty, but it wasn't: the API answered in 41 ms. The real cost was password hashing, at about 1.9 seconds per hash, run for all 133 cached users before anyone could sign in.</p>
+          <div class="lat" role="img" aria-label="Network round trip 41 milliseconds, compared with 1.9 seconds for one password hash">
+            <div class="row net"><span>API round trip</span><div class="tr"><div class="fl" style="width:2.2%"></div></div><span>41 ms</span></div>
+            <div class="row hash"><span>One password hash</span><div class="tr"><div class="fl" style="width:100%"></div></div><span>1.9 s</span></div>
+          </div>
+          <p>I measured the hashing speed on the phone itself, removed the step that hashed everyone before sign-in, and set the work factor to 25,000 iterations, writing down the trade-off. Hashes now migrate both ways, so phones already in branches got faster too. Sign-in now takes <b>under a second</b>.</p>
+
+          <div class="limits"><span class="tag"><span class="tape" aria-hidden="true"></span>Limits</span><span>Uploads need a connection; there is no offline queue. The server side, which I don't control, still uses plain HTTP without authentication. Hashing only protects the copy stored on the phone.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- A-03 -->
+    <article class="file" id="a03" aria-labelledby="a03-h">
+      <header class="label">
+        <span class="code ghost">A-03</span>
+        <h3 id="a03-h">Warehouse transfer</h3>
+        <span class="lm">Kotlin · Compose · CameraX · Room · v0.6</span>
+        <span class="st test">Test build</span>
+      </header>
+      <div class="fbody">
+        <dl class="spec">
+          <dt>Role</dt><dd>Sole developer</dd>
+          <dt>Since</dt><dd class="mono">Aug 2026</dd>
+          <dt>Status</dt><dd>Pre-pilot, on live requests in a test environment</dd>
+          <dt>Tests</dt><dd class="mono">182</dd>
+          <dt>Stack</dt><dd>Kotlin, Jetpack Compose, CameraX, ML Kit barcode, Room, T-SQL, n8n, SAP Service Layer</dd>
+        </dl>
+        <div class="fmain">
+          <p class="lead">A replacement for the transfer module of an old desktop app, built for warehouse checkers who walk the aisles, unlike the desktop PC.</p>
+          <p>Before building anything, I audited the old system and found two production bugs. A quantity check read the <b>requested</b> amount instead of the <b>remaining</b> amount, so a half-picked line could be picked again past its total. And on a slow connection, tapping submit twice created two real stock documents.</p>
+          <p>The new app scans barcodes with the camera against an offline list of about 7,000 items, shows quantities in the checker's own unit, offers batches by nearest expiry, and posts to the ERP with retry. Each submission gets a key on the phone that is resent on every retry, and a pending-post record survives the app being killed between submit and post.</p>
+
+          <div class="tscroll">
+            <table class="tbl">
+              <caption>Bugs found and fixed during the build</caption>
+              <thead><tr><th scope="col">Bug</th><th scope="col">Cause</th><th scope="col">Fix</th></tr></thead>
+              <tbody>
+                <tr><td>Quantity off by the whole pack size: 200 shown for 2</td><td>The ERP's unit lookup returns 1 for every line, so pieces and cases got mixed up</td><td>Pack size worked out from requested pieces ÷ paperwork quantity, with tests to hold it in place</td></tr>
+                <tr><td>A case line counted as one piece</td><td>An item's default barcode is the piece barcode</td><td>Matching uses the line's own unit, and wrong-unit scans are explained to the checker</td></tr>
+                <tr><td>Saved picks silently wiped</td><td><code>INSERT OR REPLACE</code> deleted the header row, and the cascade deleted every line under it</td><td>Reproduced on SQLite and replaced with an upsert. A test fails if the old statement ever comes back.</td></tr>
+                <tr><td>Sign-in could succeed on a broken reply</td><td>Four reply shapes, null arriving as the text "null", and empty success replies</td><td>No explicit success flag means failure. A fake-server test covers it.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="limits"><span class="tag"><span class="tape" aria-hidden="true"></span>Limits</span><span>Not piloted yet, and not in production. The posting step is being fixed on the server side after testing. Reopening a job doesn't restore quantities yet.</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═════════════════════════ handheld ═════════════════════════ -->
+<section class="sec" id="handheld" aria-labelledby="hh-h">
+  <div class="wrap">
+    <div class="sh"><span class="ix">02</span><h2 id="hh-h">Handheld</h2><span class="rule" aria-hidden="true"></span><span class="meta">Rebuilt from the real screens<br>All names and amounts are made up</span></div>
+
+    <div class="hh">
+      <div class="listcol">
+        <div class="apps" role="tablist" aria-label="Choose a system">
+          <button role="tab" id="t-inv" aria-selected="true" aria-controls="hh-panel" data-app="inv">A-01 Inventory</button>
+          <button role="tab" id="t-dse" aria-selected="false" aria-controls="hh-panel" data-app="dse">A-02 Deposits</button>
+          <button role="tab" id="t-dcs" aria-selected="false" aria-controls="hh-panel" data-app="dcs">A-03 Transfer</button>
+        </div>
+        <ol class="steps" id="steps" aria-label="Screens"></ol>
       </div>
 
-      <p style="margin-top:14px">Authentication is complete end to end against live company data: picker directory, first-use PIN enrolment, sign-in, lockout on repeated failure, and supervisor-gated administration. Picking and submission are implemented against a mock repository behind the same interface, ready for changeover.</p>
-    </div>
-  </section>
-
-  <!-- ═══════════ §3 ═══════════ -->
-  <section class="sec" id="s3">
-    <div>
-      <div class="num">3.0</div>
-      <div class="marg"><b>Note</b>Plates are reconstructions drawn in HTML. Item names, branches, amounts and reference numbers are invented.</div>
-    </div>
-    <div>
-      <h2>Operator interface plates</h2>
-      <p>Screen sequences for each system, reconstructed from the shipping interfaces. Advance through a sequence with the controls beneath the description.</p>
-
-      <div class="selector" role="tablist" aria-label="Select system">
-        <button role="tab" aria-selected="true" data-app="inv">2.1 Inventory</button>
-        <button role="tab" aria-selected="false" data-app="dse">2.2 Deposit slips</button>
-        <button role="tab" aria-selected="false" data-app="dcs">2.3 Transfer</button>
-      </div>
-
-      <div class="demo-grid">
-        <div class="handset">
-          <div class="hs-top"><span id="hsName">PLATE 3.1.1</span><span>1080×2340</span></div>
-          <div class="screen">
-
-            <div class="scr on" data-app="inv" style="--app:#3D69A6"
-              data-t="Sign-in and role resolution"
-              data-c="The server address is configurable per branch, so a single build serves every site. The role returned at sign-in selects the home screen; a branch clerk and a warehouse picker never see each other's workflows.">
-              <div class="sbar"><span>9:41</span><span>▮▮▮</span></div>
-              <div class="pbody" style="justify-content:center;background:#fff">
-                <div style="text-align:center;margin-bottom:4px">
-                  <div style="width:44px;height:44px;border-radius:9px;background:#3D69A6;margin:0 auto 9px;display:grid;place-items:center;color:#fff;font-weight:700">IM</div>
-                  <div style="font-weight:700;font-size:13px">Inventory Management</div>
-                  <div style="font-size:9.5px;color:#5A626E">v1.4.6</div>
-                </div>
-                <div class="fld">🌐 <span>Domain Link</span></div>
-                <div class="fld">👤 <b>a.urquico</b></div>
-                <div class="fld">🔒 <span>••••••••</span></div>
-                <div class="pbtn">Login</div>
-              </div>
-            </div>
-
+      <div class="devcol" id="hh-panel" role="tabpanel" aria-labelledby="t-inv">
+        <div class="dev">
+          <div class="dev-top"><span id="devName">A-01 · inventory</span><span id="devStep">1 / 4</span></div>
+          <div class="screen" aria-live="polite">
             <div class="scr" data-app="inv" style="--app:#3D69A6"
-              data-t="Warehouse home screen"
-              data-c="Every workflow available to this role sits one tap deep. SCAN and SEARCH are the largest targets on the screen by intent: the handset is operated one-handed, at arm's length, frequently with gloves.">
-              <div class="sbar"><span>9:42</span><span>▮▮▮</span></div>
-              <div class="abar"><b>Warehouse</b><span class="sp">⋮</span></div>
-              <div class="pbody">
-                <div class="pcard" style="display:flex;align-items:center">
-                  <div><div class="lbl">Branch</div><div style="font-weight:600;font-size:11px">MAIN — Warehouse</div></div>
-                  <span class="pill2 ok" style="margin-left:auto">Synced</span>
-                </div>
-                <div class="grid2">
-                  <div class="tile" style="background:#3D69A6;color:#fff;border-color:#3D69A6"><span class="ic">▣</span>SCAN</div>
-                  <div class="tile"><span class="ic">🔍</span>SEARCH</div>
-                </div>
-                <div class="grid2">
-                  <div class="tile"><span class="ic">📥</span>Receiving</div>
-                  <div class="tile"><span class="ic">🔁</span>Transfer</div>
-                  <div class="tile"><span class="ic">📦</span>Batch Picking</div>
-                  <div class="tile"><span class="ic">✅</span>Approvals</div>
-                </div>
-                <div class="li"><div><div class="t">Pending uploads</div><div class="s">Held until confirmed</div></div><span class="r">12</span></div>
-              </div>
-            </div>
-
+                          data-t="Sign-in and role resolution"
+                          data-c="The server address is configurable per branch, so a single build serves every site. The role returned at sign-in selects the home screen; a branch clerk and a warehouse picker never see each other's workflows.">
+                          <div class="sbar"><span>9:41</span><span>▮▮▮</span></div>
+                          <div class="pbody" style="justify-content:center;background:#fff">
+                            <div style="text-align:center;margin-bottom:4px">
+                              <div style="width:44px;height:44px;border-radius:9px;background:#3D69A6;margin:0 auto 9px;display:grid;place-items:center;color:#fff;font-weight:700">IM</div>
+                              <div style="font-weight:700;font-size:13px">Inventory Management</div>
+                              <div style="font-size:9.5px;color:#5A626E">v1.4.9</div>
+                            </div>
+                            <div class="fld">🌐 <span>Domain Link</span></div>
+                            <div class="fld">👤 <b>a.urquico</b></div>
+                            <div class="fld">🔒 <span>••••••••</span></div>
+                            <div class="pbtn">Login</div>
+                          </div>
+                        </div>
             <div class="scr" data-app="inv" style="--app:#3D69A6"
-              data-t="Scanning, with logged fallback"
-              data-c="Barcodes are damaged in ordinary use, and a picker who cannot scan must still count. The manual-search fallback exists for that case, and each use is written to a log, so unscannable stock becomes a visible pattern rather than a silent workaround.">
-              <div class="sbar"><span>9:42</span><span>▮▮▮</span></div>
-              <div class="abar"><span>←</span><b>Scan item</b></div>
-              <div class="pbody" style="background:#0f1218">
-                <div class="scanbox"><div class="fr"><div class="lz"></div></div><div class="hint">Align the barcode inside the frame</div></div>
-                <div class="pbtn alt" style="background:#fff">Search by PLU or name</div>
-              </div>
-            </div>
-
+                          data-t="Warehouse home screen"
+                          data-c="Every workflow available to this role sits one tap deep. SCAN and SEARCH are the largest targets on the screen by intent: the handset is operated one-handed, at arm's length, frequently with gloves.">
+                          <div class="sbar"><span>9:42</span><span>▮▮▮</span></div>
+                          <div class="abar"><b>Warehouse</b><span class="sp">⋮</span></div>
+                          <div class="pbody">
+                            <div class="pcard" style="display:flex;align-items:center">
+                              <div><div class="lbl">Branch</div><div style="font-weight:600;font-size:11px">MAIN — Warehouse</div></div>
+                              <span class="pill2 ok" style="margin-left:auto">Synced</span>
+                            </div>
+                            <div class="grid2">
+                              <div class="tile" style="background:#3D69A6;color:#fff;border-color:#3D69A6"><span class="ic">▣</span>SCAN</div>
+                              <div class="tile"><span class="ic">🔍</span>SEARCH</div>
+                            </div>
+                            <div class="grid2">
+                              <div class="tile"><span class="ic">📥</span>Receiving</div>
+                              <div class="tile"><span class="ic">🔁</span>Transfer</div>
+                              <div class="tile"><span class="ic">📦</span>Batch Picking</div>
+                              <div class="tile"><span class="ic">✅</span>Approvals</div>
+                            </div>
+                            <div class="li"><div><div class="t">Pending uploads</div><div class="s">Held until confirmed</div></div><span class="r">12</span></div>
+                          </div>
+                        </div>
             <div class="scr" data-app="inv" style="--app:#3D69A6"
-              data-t="Entry and local commit"
-              data-c="The entry screen adapts to the originating workflow and to whether the item is batch-tracked. Save writes to the on-device database, not to the network; transmission is a separate action taken later.">
-              <div class="sbar"><span>9:44</span><span>▮▮▮</span></div>
-              <div class="abar"><span>←</span><b>Adding Details</b></div>
-              <div class="pbody">
-                <div class="pcard">
-                  <div class="lbl">Quantity</div>
-                  <div class="qty">144</div>
-                  <div style="text-align:center;font-size:9px;color:#5A626E">PACK · base qty 1</div>
-                </div>
-                <div class="fld"><span class="lbl" style="width:44px">Batch</span><b>B-240712</b></div>
-                <div class="fld"><span class="lbl" style="width:44px">Expiry</span><b>12/07/2026</b></div>
-                <div style="display:flex;gap:6px">
-                  <div class="fld" style="flex:1;justify-content:center"><b>R4</b></div>
-                  <div class="fld" style="flex:1;justify-content:center"><b>C2</b></div>
-                  <div class="fld" style="flex:1;justify-content:center"><b>L1</b></div>
-                </div>
-                <div style="flex:1"></div>
-                <div class="pcard" style="background:#EAF0F8;border-color:#C8D8EC;font-size:9.5px;color:#294A78">Saved locally. Upload when ready.</div>
-                <div class="pbtn">Save</div>
-              </div>
-            </div>
-
+                          data-t="Scanning, with logged fallback"
+                          data-c="Barcodes are damaged in ordinary use, and a picker who cannot scan must still count. The manual-search fallback exists for that case, and each use is written to a log, so unscannable stock becomes a visible pattern rather than a silent workaround.">
+                          <div class="sbar"><span>9:42</span><span>▮▮▮</span></div>
+                          <div class="abar"><span>←</span><b>Scan item</b></div>
+                          <div class="pbody" style="background:#0f1218">
+                            <div class="scanbox"><div class="fr"><div class="lz"></div></div><div class="hint">Align the barcode inside the frame</div></div>
+                            <div class="pbtn alt" style="background:#fff">Search by PLU or name</div>
+                          </div>
+                        </div>
+            <div class="scr" data-app="inv" style="--app:#3D69A6"
+                          data-t="Entry and local commit"
+                          data-c="The entry screen adapts to the originating workflow and to whether the item is batch-tracked. Save writes to the on-device database, not to the network; transmission is a separate action taken later.">
+                          <div class="sbar"><span>9:44</span><span>▮▮▮</span></div>
+                          <div class="abar"><span>←</span><b>Adding Details</b></div>
+                          <div class="pbody">
+                            <div class="pcard">
+                              <div class="lbl">Quantity</div>
+                              <div class="qty">144</div>
+                              <div style="text-align:center;font-size:9px;color:#5A626E">PACK · base qty 1</div>
+                            </div>
+                            <div class="fld"><span class="lbl" style="width:44px">Batch</span><b>B-240712</b></div>
+                            <div class="fld"><span class="lbl" style="width:44px">Expiry</span><b>12/07/2026</b></div>
+                            <div style="display:flex;gap:6px">
+                              <div class="fld" style="flex:1;justify-content:center"><b>R4</b></div>
+                              <div class="fld" style="flex:1;justify-content:center"><b>C2</b></div>
+                              <div class="fld" style="flex:1;justify-content:center"><b>L1</b></div>
+                            </div>
+                            <div style="flex:1"></div>
+                            <div class="pcard" style="background:#EAF0F8;border-color:#C8D8EC;font-size:9.5px;color:#294A78">Saved locally. Upload when ready.</div>
+                            <div class="pbtn">Save</div>
+                          </div>
+                        </div>
             <div class="scr" data-app="dse" style="--app:#6650A4"
-              data-t="Header and slip capture"
-              data-c="A day's takings are frequently banked as more than one deposit. The header is captured once — sales date and encoder — and up to three slips attach to it, each with its own photograph, bank and amount.">
-              <div class="sbar"><span>9:45</span><span>▮▮▮</span></div>
-              <div class="abar"><b>New Deposit</b><span class="sp">⋮</span></div>
-              <div class="pbody">
-                <div class="fld"><span class="lbl" style="width:62px">Sales Date</span><b>18/08/2026</b></div>
-                <div class="fld"><span class="lbl" style="width:62px">Encoded By</span><b>A. Urquico</b></div>
-                <div class="pcard" style="border-style:dashed;text-align:center;padding:16px 10px">
-                  <div style="font-size:20px">📷</div>
-                  <div style="font-weight:600;font-size:11px;margin-top:4px;color:#6650A4">Take Picture 1 *</div>
-                </div>
-                <div class="li" style="opacity:.5"><div><div class="t">Take Picture 2</div><div class="s">Optional</div></div><span class="r">＋</span></div>
-                <div class="li" style="opacity:.5"><div><div class="t">Take Picture 3</div><div class="s">Optional</div></div><span class="r">＋</span></div>
-              </div>
-            </div>
-
+                          data-t="Header and slip capture"
+                          data-c="A day's takings are frequently banked as more than one deposit. The header is captured once — sales date and encoder — and up to three slips attach to it, each with its own photograph, bank and amount.">
+                          <div class="sbar"><span>9:45</span><span>▮▮▮</span></div>
+                          <div class="abar"><b>New Deposit</b><span class="sp">⋮</span></div>
+                          <div class="pbody">
+                            <div class="fld"><span class="lbl" style="width:62px">Sales Date</span><b>18/08/2026</b></div>
+                            <div class="fld"><span class="lbl" style="width:62px">Encoded By</span><b>A. Urquico</b></div>
+                            <div class="pcard" style="border-style:dashed;text-align:center;padding:16px 10px">
+                              <div style="font-size:20px">📷</div>
+                              <div style="font-weight:600;font-size:11px;margin-top:4px;color:#6650A4">Take Picture 1 *</div>
+                            </div>
+                            <div class="li" style="opacity:.5"><div><div class="t">Take Picture 2</div><div class="s">Optional</div></div><span class="r">＋</span></div>
+                            <div class="li" style="opacity:.5"><div><div class="t">Take Picture 3</div><div class="s">Optional</div></div><span class="r">＋</span></div>
+                          </div>
+                        </div>
             <div class="scr" data-app="dse" style="--app:#6650A4"
-              data-t="Recognition pass"
-              data-c="Text recognition executes on the handset; the photograph is not transmitted to be interpreted. Parsing rules are written per bank, since slip layouts differ, and the amount pattern is deliberately strict.">
-              <div class="sbar"><span>9:46</span><span>▮▮▮</span></div>
-              <div class="abar"><span>←</span><b>Reading slip…</b></div>
-              <div class="pbody" style="background:#0f1218">
-                <div class="slip">
-                  <div style="font:700 8.5px monospace;color:#38414f;margin-bottom:7px">BDO · DEPOSIT SLIP</div>
-                  <div class="l g"></div><div class="l m"></div><div class="l s"></div><div class="l m"></div><div class="l g"></div>
-                  <div class="ocr" style="left:9px;top:28px;width:62%;height:12px"></div>
-                  <div class="ocr" style="left:9px;top:59px;width:44%;height:12px"></div>
-                </div>
-                <div class="pcard" style="background:#fff">
-                  <div class="lbl" style="margin-bottom:4px">Detected fields</div>
-                  <div style="display:flex;justify-content:space-between;font-size:10.5px"><span style="color:#5A626E">Bank</span><b>BDO</b></div>
-                  <div style="display:flex;justify-content:space-between;font-size:10.5px"><span style="color:#5A626E">Reference</span><b>0093-441207</b></div>
-                  <div style="display:flex;justify-content:space-between;font-size:10.5px"><span style="color:#5A626E">Amount</span><b>48,250.00</b></div>
-                  <div style="display:flex;justify-content:space-between;font-size:10.5px"><span style="color:#5A626E">Deposit Date</span><b>18/08/2026</b></div>
-                </div>
-              </div>
-            </div>
-
+                          data-t="Recognition pass"
+                          data-c="Text recognition executes on the handset; the photograph is not transmitted to be interpreted. Parsing rules are written per bank, since slip layouts differ, and the amount pattern is deliberately strict.">
+                          <div class="sbar"><span>9:46</span><span>▮▮▮</span></div>
+                          <div class="abar"><span>←</span><b>Reading slip…</b></div>
+                          <div class="pbody" style="background:#0f1218">
+                            <div class="slip">
+                              <div style="font:700 8.5px monospace;color:#38414f;margin-bottom:7px">BDO · DEPOSIT SLIP</div>
+                              <div class="l g"></div><div class="l m"></div><div class="l s"></div><div class="l m"></div><div class="l g"></div>
+                              <div class="ocr" style="left:9px;top:28px;width:62%;height:12px"></div>
+                              <div class="ocr" style="left:9px;top:59px;width:44%;height:12px"></div>
+                            </div>
+                            <div class="pcard" style="background:#fff">
+                              <div class="lbl" style="margin-bottom:4px">Detected fields</div>
+                              <div style="display:flex;justify-content:space-between;font-size:10.5px"><span style="color:#5A626E">Bank</span><b>BDO</b></div>
+                              <div style="display:flex;justify-content:space-between;font-size:10.5px"><span style="color:#5A626E">Reference</span><b>0093-441207</b></div>
+                              <div style="display:flex;justify-content:space-between;font-size:10.5px"><span style="color:#5A626E">Amount</span><b>48,250.00</b></div>
+                              <div style="display:flex;justify-content:space-between;font-size:10.5px"><span style="color:#5A626E">Deposit Date</span><b>18/08/2026</b></div>
+                            </div>
+                          </div>
+                        </div>
             <div class="scr" data-app="dse" style="--app:#6650A4"
-              data-t="Confirmation and upload"
-              data-c="Every field remains editable: a misread amount in a finance system is worse than no automation at all. The image is downscaled and compressed before transmission, for branches on constrained connections.">
-              <div class="sbar"><span>9:47</span><span>▮▮▮</span></div>
-              <div class="abar"><span>←</span><b>Review</b></div>
-              <div class="pbody">
-                <div class="pcard">
-                  <div class="lbl">Header</div>
-                  <div style="font-size:10.5px;margin-top:3px">Sales Date: <b>18/08/2026</b></div>
-                  <div style="font-size:10.5px">Encoded By: <b>A. Urquico</b></div>
-                </div>
-                <div class="pcard">
-                  <div style="display:flex;gap:5px"><span class="pill2">Slip 1</span><span class="pill2 ok">Image attached</span></div>
-                  <div style="font-size:10.5px;margin-top:5px">BDO · 0093-441207</div>
-                  <div style="font-size:10.5px">Amount: <b>₱48,250.00</b></div>
-                </div>
-                <div class="pcard" style="opacity:.45"><span class="pill2">Slip 2</span> <span class="pill2">Not attached</span></div>
-                <div style="flex:1"></div>
-                <div style="display:flex;gap:6px"><div class="pbtn alt" style="flex:1">Go Back</div><div class="pbtn" style="flex:1">Submit</div></div>
-              </div>
-            </div>
-
+                          data-t="Confirmation and upload"
+                          data-c="Extracted fields are shown for confirmation before upload: a misread amount in a finance system is worse than no automation at all. The image is downscaled and compressed before transmission, for branches on constrained connections.">
+                          <div class="sbar"><span>9:47</span><span>▮▮▮</span></div>
+                          <div class="abar"><span>←</span><b>Review</b></div>
+                          <div class="pbody">
+                            <div class="pcard">
+                              <div class="lbl">Header</div>
+                              <div style="font-size:10.5px;margin-top:3px">Sales Date: <b>18/08/2026</b></div>
+                              <div style="font-size:10.5px">Encoded By: <b>A. Urquico</b></div>
+                            </div>
+                            <div class="pcard">
+                              <div style="display:flex;gap:5px"><span class="pill2">Slip 1</span><span class="pill2 ok">Image attached</span></div>
+                              <div style="font-size:10.5px;margin-top:5px">BDO · 0093-441207</div>
+                              <div style="font-size:10.5px">Amount: <b>₱48,250.00</b></div>
+                            </div>
+                            <div class="pcard" style="opacity:.45"><span class="pill2">Slip 2</span> <span class="pill2">Not attached</span></div>
+                            <div style="flex:1"></div>
+                            <div style="display:flex;gap:6px"><div class="pbtn alt" style="flex:1">Go Back</div><div class="pbtn" style="flex:1">Submit</div></div>
+                          </div>
+                        </div>
             <div class="scr" data-app="dcs" style="--app:#0F766E"
-              data-t="Picker identification"
-              data-c="Handsets are shared between pickers, so identity is a tap on one's own name rather than a typed username. PINs are chosen by the picker at first use, and five failed attempts locks the account.">
-              <div class="sbar"><span>9:41</span><span>▮▮▮</span></div>
-              <div class="abar"><b>Who is picking?</b><span class="sp">⟳</span></div>
-              <div class="pbody">
-                <div class="li"><div><div class="t">Marvin dela Cruz</div><div class="s">MAIN · PIN set</div></div><span class="r">→</span></div>
-                <div class="li"><div><div class="t">Joan Ramirez</div><div class="s">MAIN · PIN set</div></div><span class="r">→</span></div>
-                <div class="li"><div><div class="t">Elmer Bautista</div><div class="s">DISTRI · Set PIN</div></div><span class="r">→</span></div>
-                <div class="li" style="opacity:.5"><div><div class="t">Rico Santos</div><div class="s">MAIN</div></div><span class="pill2 bad" style="margin-left:auto">Locked</span></div>
-                <div style="flex:1"></div>
-                <div class="pbtn alt">Supervisor access</div>
-              </div>
-            </div>
-
+                          data-t="Picker identification"
+                          data-c="Handsets are shared between pickers, so identity is a tap on one's own name rather than a typed username. PINs are chosen by the picker at first use, and five failed attempts lock the account for fifteen minutes, enforced on the server.">
+                          <div class="sbar"><span>9:41</span><span>▮▮▮</span></div>
+                          <div class="abar"><b>Who is picking?</b><span class="sp">⟳</span></div>
+                          <div class="pbody">
+                            <div class="li"><div><div class="t">Marvin dela Cruz</div><div class="s">MAIN · PIN set</div></div><span class="r">→</span></div>
+                            <div class="li"><div><div class="t">Joan Ramirez</div><div class="s">MAIN · PIN set</div></div><span class="r">→</span></div>
+                            <div class="li"><div><div class="t">Elmer Bautista</div><div class="s">DISTRI · Set PIN</div></div><span class="r">→</span></div>
+                            <div class="li" style="opacity:.5"><div><div class="t">Rico Santos</div><div class="s">MAIN</div></div><span class="pill2 bad" style="margin-left:auto">Locked</span></div>
+                            <div style="flex:1"></div>
+                            <div class="pbtn alt">Supervisor access</div>
+                          </div>
+                        </div>
             <div class="scr" data-app="dcs" style="--app:#0F766E"
-              data-t="PIN entry"
-              data-c="Four digits, chosen by the picker and confirmed twice at enrolment. Deliberately low-friction: this screen is used dozens of times per shift, often with cold hands, and any heavier method is worked around rather than used.">
-              <div class="sbar"><span>9:41</span><span>▮▮▮</span></div>
-              <div class="abar"><span>←</span><b>Enter your PIN</b></div>
-              <div class="pbody" style="justify-content:center">
-                <div style="text-align:center;font-weight:600;font-size:11.5px">Marvin dela Cruz</div>
-                <div class="dots2"><i></i><i></i><i class="o"></i><i class="o"></i></div>
-                <div class="keypad">
-                  <div class="pkey">1</div><div class="pkey">2</div><div class="pkey">3</div>
-                  <div class="pkey">4</div><div class="pkey">5</div><div class="pkey">6</div>
-                  <div class="pkey">7</div><div class="pkey">8</div><div class="pkey">9</div>
-                  <div class="pkey" style="opacity:.35">·</div><div class="pkey">0</div><div class="pkey">⌫</div>
-                </div>
-                <div style="text-align:center;font-size:9px;color:#5A626E;margin-top:5px">4 attempts remaining</div>
-              </div>
-            </div>
-
+                          data-t="PIN entry"
+                          data-c="Four digits, chosen by the picker and confirmed twice at enrolment. Deliberately low-friction: this screen is used dozens of times per shift, often with cold hands, and any heavier method is worked around rather than used.">
+                          <div class="sbar"><span>9:41</span><span>▮▮▮</span></div>
+                          <div class="abar"><span>←</span><b>Enter your PIN</b></div>
+                          <div class="pbody" style="justify-content:center">
+                            <div style="text-align:center;font-weight:600;font-size:11.5px">Marvin dela Cruz</div>
+                            <div class="dots2"><i></i><i></i><i class="o"></i><i class="o"></i></div>
+                            <div class="keypad">
+                              <div class="pkey">1</div><div class="pkey">2</div><div class="pkey">3</div>
+                              <div class="pkey">4</div><div class="pkey">5</div><div class="pkey">6</div>
+                              <div class="pkey">7</div><div class="pkey">8</div><div class="pkey">9</div>
+                              <div class="pkey" style="opacity:.35">·</div><div class="pkey">0</div><div class="pkey">⌫</div>
+                            </div>
+                            <div style="text-align:center;font-size:9px;color:#5A626E;margin-top:5px">4 attempts remaining</div>
+                          </div>
+                        </div>
             <div class="scr" data-app="dcs" style="--app:#0F766E"
-              data-t="Line picking"
-              data-c="The governing figure on each line is the open quantity, not the requested quantity. Validating against the wrong one is precisely the defect recorded at §2.3 that permitted a part-picked line to be over-transferred. Batches are offered oldest-expiry-first.">
-              <div class="sbar"><span>9:49</span><span>▮▮▮</span></div>
-              <div class="abar"><span>←</span><b>Gummy Bears 100g</b></div>
-              <div class="pbody">
-                <div class="pcard" style="display:flex;text-align:center">
-                  <div style="flex:1"><div class="lbl">Requested</div><div style="font-weight:700;font-size:13px">240</div></div>
-                  <div style="flex:1"><div class="lbl">Allocated</div><div style="font-weight:700;font-size:13px">96</div></div>
-                  <div style="flex:1"><div class="lbl">Still open</div><div style="font-weight:700;font-size:13px;color:#0F766E">144</div></div>
-                </div>
-                <div class="pcard" style="text-align:center;padding:10px">
-                  <div style="font-size:16px">▣</div>
-                  <div style="font-weight:600;font-size:10.5px;margin-top:2px">Scan an item</div>
-                  <div style="font-size:9px;color:#5A626E">Or type a barcode</div>
-                </div>
-                <div class="lbl">Batches · oldest expiry first</div>
-                <div class="li"><div><div class="t">B-240712</div><div class="s">Exp 12/07/2026 · 180 on hand</div></div><span class="r">Use</span></div>
-                <div class="li" style="opacity:.55"><div><div class="t">B-241130</div><div class="s">Exp 30/11/2026 · 300 on hand</div></div><span class="r">Use</span></div>
-              </div>
-            </div>
-
+                          data-t="Line picking"
+                          data-c="The governing figure on each line is the open quantity, not the requested quantity. Validating against the wrong one is precisely the old-system defect described in A-03 that permitted a part-picked line to be over-transferred. Batches are offered oldest-expiry-first.">
+                          <div class="sbar"><span>9:49</span><span>▮▮▮</span></div>
+                          <div class="abar"><span>←</span><b>Gummy Bears 100g</b></div>
+                          <div class="pbody">
+                            <div class="pcard" style="display:flex;text-align:center">
+                              <div style="flex:1"><div class="lbl">Requested</div><div style="font-weight:700;font-size:13px">240</div></div>
+                              <div style="flex:1"><div class="lbl">Allocated</div><div style="font-weight:700;font-size:13px">96</div></div>
+                              <div style="flex:1"><div class="lbl">Still open</div><div style="font-weight:700;font-size:13px;color:#0F766E">144</div></div>
+                            </div>
+                            <div class="pcard" style="text-align:center;padding:10px">
+                              <div style="font-size:16px">▣</div>
+                              <div style="font-weight:600;font-size:10.5px;margin-top:2px">Scan an item</div>
+                              <div style="font-size:9px;color:#5A626E">Or type a barcode</div>
+                            </div>
+                            <div class="lbl">Batches · oldest expiry first</div>
+                            <div class="li"><div><div class="t">B-240712</div><div class="s">Exp 12/07/2026 · 180 on hand</div></div><span class="r">Use</span></div>
+                            <div class="li" style="opacity:.55"><div><div class="t">B-241130</div><div class="s">Exp 30/11/2026 · 300 on hand</div></div><span class="r">Use</span></div>
+                          </div>
+                        </div>
             <div class="scr" data-app="dcs" style="--app:#0F766E"
-              data-t="Outbox"
-              data-c="Submission does not post to the ERP directly. It writes to the staging outbox under a submission key, and a worker posts each key onward exactly once — the structure shown at Fig. 2.3, which renders a second tap harmless.">
-              <div class="sbar"><span>9:50</span><span>▮▮▮</span></div>
-              <div class="abar"><span>←</span><b>Outbox</b><span class="sp">⟳</span></div>
-              <div class="pbody">
-                <div class="pcard" style="background:#E8F5F2;border-color:#B9E0D8">
-                  <div style="font-weight:600;font-size:10.5px;color:#0F766E">Sent from this device</div>
-                  <div style="font-size:9.5px;color:#43616B;margin-top:2px">Re-sending the same key changes nothing.</div>
-                </div>
-                <div class="li"><div><div class="t">TR-2026-0818-041</div><div class="s">Key 7f3a··c19 · 3 lines</div></div><span class="pill2 ok" style="margin-left:auto">Posted</span></div>
-                <div class="li"><div><div class="t">TR-2026-0818-042</div><div class="s">Key 91be··2d7 · 5 lines</div></div><span class="pill2" style="margin-left:auto">Queued</span></div>
-                <div class="li" style="opacity:.55"><div><div class="t">TR-2026-0818-040</div><div class="s">Key 20cc··8a1 · 2 lines</div></div><span class="pill2 ok" style="margin-left:auto">Posted</span></div>
-              </div>
-            </div>
-
+                          data-t="Outbox"
+                          data-c="Submitting writes to a staging outbox under a key created on the phone; a worker posts each key onward exactly once. A second tap on a slow connection changes nothing.">
+                          <div class="sbar"><span>9:50</span><span>▮▮▮</span></div>
+                          <div class="abar"><span>←</span><b>Outbox</b><span class="sp">⟳</span></div>
+                          <div class="pbody">
+                            <div class="pcard" style="background:#E8F5F2;border-color:#B9E0D8">
+                              <div style="font-weight:600;font-size:10.5px;color:#0F766E">Sent from this device</div>
+                              <div style="font-size:9.5px;color:#43616B;margin-top:2px">Re-sending the same key changes nothing.</div>
+                            </div>
+                            <div class="li"><div><div class="t">TR-2026-0818-041</div><div class="s">Key 7f3a··c19 · 3 lines</div></div><span class="pill2 ok" style="margin-left:auto">Posted</span></div>
+                            <div class="li"><div><div class="t">TR-2026-0818-042</div><div class="s">Key 91be··2d7 · 5 lines</div></div><span class="pill2" style="margin-left:auto">Queued</span></div>
+                            <div class="li" style="opacity:.55"><div><div class="t">TR-2026-0818-040</div><div class="s">Key 20cc··8a1 · 2 lines</div></div><span class="pill2 ok" style="margin-left:auto">Posted</span></div>
+                          </div>
+                        </div>
           </div>
         </div>
+      </div>
 
-        <div>
-          <div class="step-h"><span class="sn" id="stepNum">3.1.1</span><span id="stepTitle">Sign-in and role resolution</span></div>
-          <p class="step-c" id="stepCap">…</p>
-          <div class="ctrl">
-            <button class="mv" id="prevBtn">◀ Previous</button>
-            <button class="mv" id="nextBtn">Next ▶</button>
-            <div class="pips" id="pips" role="group" aria-label="Select plate"></div>
-            <span class="of" id="stepOf">1 of 4</span>
-          </div>
-        </div>
+      <div class="cap">
+        <div class="ck" id="capK">Screen 1</div>
+        <h4 id="capT">…</h4>
+        <p id="capC">…</p>
+        <p class="disc">Use ← → to move between screens once the list has focus.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════ §4 ═══════════ -->
-  <section class="sec" id="s4">
-    <div><div class="num">4.0</div></div>
+<!-- ═════════════════════════ practice ═════════════════════════ -->
+<section class="sec" id="practice" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="sh"><span class="ix">03</span><h2 id="pr-h">Practice</h2><span class="rule" aria-hidden="true"></span><span class="meta">How the work above got done</span></div>
+    <div class="prac">
+      <article>
+        <span class="n">01</span><h3>Read the system before rewriting it</h3>
+        <p>I check what the existing system actually does, and write it down, before proposing a replacement. A straight port would have carried both of the old transfer app's bugs across.</p>
+        <span class="ref">Applied in <a href="#a03">A-03</a></span>
+      </article>
+      <article>
+        <span class="n">02</span><h3>Measure before fixing</h3>
+        <p>The obvious suspect is often innocent. The slow sign-in looked like a network problem, but it was hashing, and I only found that by timing each step on the phone itself.</p>
+        <span class="ref">Applied in <a href="#a02">A-02</a></span>
+      </article>
+      <article>
+        <span class="n">03</span><h3>Design for the failure case</h3>
+        <p>Weak signal, double taps and half-finished work are normal on a warehouse floor. Saving on the phone first and making submits safe to repeat costs far less than cleaning up bad data later.</p>
+        <span class="ref">Applied in <a href="#a01">A-01</a> · <a href="#a03">A-03</a></span>
+      </article>
+      <article>
+        <span class="n">04</span><h3>Every fixed bug gets a test</h3>
+        <p>A bug that's fixed but not tested comes back. Real slip photos are replayed as test data, and the wiped-picks bug has a test that fails if the old code returns. The three apps have 387 tests between them.</p>
+        <span class="ref">Applied in <a href="#a02">A-02</a> · <a href="#a03">A-03</a></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════ toolkit ═════════════════════════ -->
+<section class="sec" id="toolkit" aria-labelledby="tk-h">
+  <div class="wrap">
+    <div class="sh"><span class="ix">04</span><h2 id="tk-h">Toolkit</h2><span class="rule" aria-hidden="true"></span><span class="meta">Checked against each repository<br>● used &nbsp; ○ not used</span></div>
+    <div class="tscroll">
+      <table class="mx">
+        <thead>
+          <tr><th scope="col">Tool</th><th scope="col">Used for</th><th scope="col" class="c">A-01</th><th scope="col" class="c">A-02</th><th scope="col" class="c">A-03</th></tr>
+        </thead>
+        <tbody>
+          <tr class="grp"><td colspan="5">Language & UI</td></tr>
+          <tr><td>Kotlin</td><td>Both native apps</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Jetpack Compose</td><td>UI, with Material 3</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Dart / Flutter</td><td>Cross-platform app, Android target</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td></tr>
+          <tr class="grp"><td colspan="5">Device</td></tr>
+          <tr><td>ML Kit text recognition</td><td>Reading deposit slips on-device</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td></tr>
+          <tr><td>CameraX + ML Kit barcode</td><td>Continuous scanning</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>mobile_scanner</td><td>Camera barcode scanning in Flutter</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td></tr>
+          <tr class="grp"><td colspan="5">Storage</td></tr>
+          <tr><td>SQLite</td><td>Local data, through sqflite, SQLiteOpenHelper and Room</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Room</td><td>Outbox and picks, with tested migrations</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Secure storage</td><td>flutter_secure_storage; encrypted preferences</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td></tr>
+          <tr class="grp"><td colspan="5">Integration</td></tr>
+          <tr><td>SAP Business One</td><td>Reads and transfer posting through the company API and Service Layer</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>n8n webhooks</td><td>Workflows behind reads, sign-in and version checks</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>T-SQL</td><td>Stored procedures, staging schema</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Retrofit / OkHttp</td><td>Multipart uploads</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td></tr>
+          <tr class="grp"><td colspan="5">Patterns</td></tr>
+          <tr><td>Offline-first storage</td><td>Work saved on the phone before any network call</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Outbox, idempotency key</td><td>Retry-safe submission</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Forced-update gate</td><td>Blocks outdated builds, tolerates offline</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td></tr>
+          <tr><td>MVVM</td><td>ViewModels behind Compose screens</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr class="grp"><td colspan="5">Quality & operations</td></tr>
+          <tr><td>JUnit</td><td>Unit tests: 90, 115 and 182</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Robolectric, Compose UI tests</td><td>Database and screen tests off-device</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>GitHub Actions</td><td>Tests and builds on every push</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>Sentry</td><td>Errors, crashes, upload timing</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>R8 + release signing</td><td>Shrunk, signed builds</td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td></tr>
+          <tr><td>bcrypt / PBKDF2</td><td>Password hashing on the phone</td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot" role="img" aria-label="used"></span></td><td class="c"><span class="dot no" role="img" aria-label="not used"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mx-note">I work with AI assistants, Claude Code and GitHub Copilot, and the commit history shows it. The design decisions, the testing against live systems, and responsibility for what ships are mine.</p>
+  </div>
+</section>
+
+<!-- ═════════════════════════ contact ═════════════════════════ -->
+<section class="contact" id="contact" aria-labelledby="ct-h">
+  <div class="wrap">
     <div>
-      <h2>Capability matrix</h2>
-      <p>Ordered by depth of production use rather than by familiarity.</p>
-      <div class="tbl-wrap">
-        <table>
-          <caption>Table 4.1 — Capabilities</caption>
-          <thead><tr><th>Group</th><th>Items</th><th class="mono">Applied at</th></tr></thead>
-          <tbody>
-            <tr><td>Languages</td><td>Kotlin, Dart, Python, C#, SQL (T-SQL)</td><td class="mono">2.1 2.2 2.3</td></tr>
-            <tr><td>Mobile</td><td>Android SDK, Jetpack Compose, Flutter, ML Kit text recognition, barcode capture</td><td class="mono">2.1 2.2 2.3</td></tr>
-            <tr><td>Architecture</td><td>Offline-first synchronisation, MVVM, BLoC / Cubit, repository pattern, outbox and idempotent writes</td><td class="mono">2.1 2.3</td></tr>
-            <tr><td>Data</td><td>SQLite / sqflite, SQL Server, stored procedures, schema design</td><td class="mono">2.1 2.3</td></tr>
-            <tr><td>Integration</td><td>REST (Retrofit, OkHttp, http), SAP Business One Service Layer, n8n workflow automation, webhooks</td><td class="mono">2.1 2.2 2.3</td></tr>
-            <tr><td>Practice</td><td>Git, Gradle, release management, secure credential handling, technical documentation</td><td class="mono">2.1 2.2 2.3</td></tr>
-          </tbody>
-        </table>
+      <h2 id="ct-h">05 · Contact</h2>
+      <div class="mail">
+        <a href="mailto:alexurquico@gmail.com">alexurquico@gmail.com</a>
+        <button class="copy" id="copyBtn" type="button" data-email="alexurquico@gmail.com">Copy</button>
+        <span class="vh" id="copyLive" aria-live="polite"></span>
       </div>
+      <p class="note">Open to software engineering roles in mobile and backend, remote or in Metro Manila. I'm happy to walk through any of these systems, including the parts that didn't work the first time.</p>
     </div>
-  </section>
-
-  <!-- ═══════════ §5 ═══════════ -->
-  <section class="sec" id="s5">
-    <div>
-      <div class="num">5.0</div>
-      <div class="marg"><b>Ref</b>The audit at §2.3 is the clearest instance of 5.1 in practice.</div>
-    </div>
-    <div>
-      <h2>Engineering practice</h2>
-
-      <h3><span class="hn">5.1</span>Read the system before rewriting it</h3>
-      <p>What already exists is audited, and its actual behaviour written down, before any replacement is proposed. On occasion the honest finding is that a small number of targeted corrections is preferable to a new codebase, and recording that finding is worth more than winning a larger project.</p>
-
-      <h3><span class="hn">5.2</span>Design for the failure case</h3>
-      <p>Intermittent networks, repeated taps and half-finished work are the ordinary condition in the field, not the exception. Local-first writes, staging outboxes and idempotent submission cost considerably less than reconciling corrupted data afterwards.</p>
-
-      <h3><span class="hn">5.3</span>Leave it serviceable</h3>
-      <p>Each system carries an architecture document, an endpoint contract and a current status file in its repository, sufficient for another engineer to continue the work without a briefing.</p>
-    </div>
-  </section>
-
-  <!-- ═══════════ §6 ═══════════ -->
-  <section class="sec" id="s6">
-    <div><div class="num">6.0</div></div>
-    <div>
-      <h2>Service information</h2>
-      <p>Open to software engineering positions across mobile and backend work. Available to discuss any system in this document in detail, including the parts that did not work at the first attempt.</p>
-      <div class="tbl-wrap">
-        <table>
-          <caption>Table 6.1 — Contact and background</caption>
-          <tbody>
-            <tr><th scope="row" style="width:130px">Electronic mail</th><td><a href="mailto:alexurquico@gmail.com">alexurquico@gmail.com</a></td></tr>
-            <tr><th scope="row">LinkedIn</th><td><a href="https://www.linkedin.com/in/alexurquico/" rel="noopener">linkedin.com/in/alexurquico</a></td></tr>
-            <tr><th scope="row">Repositories</th><td><a href="https://github.com/AlexanderUrquico" rel="noopener">github.com/AlexanderUrquico</a></td></tr>
-            <tr><th scope="row">Location</th><td>Calamba, Laguna, Philippines</td></tr>
-            <tr><th scope="row">Education</th><td>Polytechnic University of the Philippines — BSIT, September 2023. General weighted average 1.38; consistent President's Lister.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="call">
-        <div class="lab">Notice</div>
-        <p>The repositories for the systems at §2 are private company property. Architecture, trade-offs and defects may be discussed freely; source code may not be distributed.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ appendix ═══════════ -->
-  <section class="sec" id="sa">
-    <div><div class="num">A</div></div>
-    <div>
-      <h2>Appendix A — Revision history</h2>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th class="mono">Rev</th><th class="mono">Date</th><th>Change</th></tr></thead>
-          <tbody>
-            <tr><td class="mono">3</td><td class="mono">2026-09</td><td>Warehouse transfer added at §2.3; capability matrix revised.</td></tr>
-            <tr><td class="mono">2</td><td class="mono">2026-05</td><td>Deposit slip uploader promoted to production; extraction table added at §2.2.</td></tr>
-            <tr><td class="mono">1</td><td class="mono">2024-03</td><td>First issue.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <footer class="colophon">
-    <span>AU-2026-01 · Rev. 3</span>
-    <span>Alexander Urquico</span>
-    <span class="sp">Set in Georgia and Helvetica. One hand-written HTML file.</span>
-  </footer>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/alexurquico/" rel="noopener"><span>LinkedIn</span><span>/in/alexurquico</span><span aria-hidden="true">↗</span></a></li>
+      <li><a href="https://github.com/AlexanderUrquico" rel="noopener"><span>GitHub</span><span>AlexanderUrquico</span><span aria-hidden="true">↗</span></a></li>
+      <li><a href="#top"><span>Based in</span><span>Calamba, Laguna, Philippines</span><span aria-hidden="true">↑</span></a></li>
+    </ul>
+  </div>
+</section>
 
 </main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 Alexander Urquico</span>
+    <span>Revised Oct 2026 from a code review of all three repositories</span>
+    <span class="sp">One HTML file. No framework, no tracking.</span>
+  </div>
+</footer>
 
 <script>
 (function(){
   "use strict";
+
+  /* ── active section in the nav ── */
+  var links = [].slice.call(document.querySelectorAll('.nav a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        links.forEach(function(a){ a.removeAttribute('aria-current'); });
+        var a = map[e.target.id];
+        if (a) a.setAttribute('aria-current','true');
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(map).forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
+  }
+
+  /* ── handheld walkthrough ── */
   var screens = [].slice.call(document.querySelectorAll('.scr'));
-  var tabs    = [].slice.call(document.querySelectorAll('.selector button'));
-  var title   = document.getElementById('stepTitle');
-  var cap     = document.getElementById('stepCap');
-  var num     = document.getElementById('stepNum');
-  var of      = document.getElementById('stepOf');
-  var pips    = document.getElementById('pips');
-  var hsName  = document.getElementById('hsName');
-  var SEC     = {inv:'3.1', dse:'3.2', dcs:'3.3'};
+  var tabs    = [].slice.call(document.querySelectorAll('.apps [role="tab"]'));
+  var stepsEl = document.getElementById('steps');
+  var panel   = document.getElementById('hh-panel');
+  var capK = document.getElementById('capK'), capT = document.getElementById('capT'), capC = document.getElementById('capC');
+  var devName = document.getElementById('devName'), devStep = document.getElementById('devStep');
+  var NAMES = {inv:'A-01 · inventory', dse:'A-02 · deposits', dcs:'A-03 · transfer'};
   var app = 'inv', idx = 0;
 
   function list(){ return screens.filter(function(s){ return s.dataset.app === app; }); }
 
-  function draw(){
+  function draw(focusStep){
     var l = list();
-    if (idx >= l.length) idx = 0;
     if (idx < 0) idx = l.length - 1;
+    if (idx >= l.length) idx = 0;
     screens.forEach(function(s){ s.classList.remove('on'); });
-    var a = l[idx];
-    a.classList.add('on');
-    title.textContent  = a.dataset.t;
-    cap.textContent    = a.dataset.c;
-    num.textContent    = SEC[app] + '.' + (idx + 1);
-    of.textContent     = (idx + 1) + ' of ' + l.length;
-    hsName.textContent = 'PLATE ' + SEC[app] + '.' + (idx + 1);
-    pips.innerHTML = '';
-    l.forEach(function(_, i){
+    var cur = l[idx];
+    cur.classList.add('on');
+    capK.textContent = 'Screen ' + (idx + 1) + ' of ' + l.length;
+    capT.textContent = cur.dataset.t;
+    capC.textContent = cur.dataset.c;
+    devName.textContent = NAMES[app];
+    devStep.textContent = (idx + 1) + ' / ' + l.length;
+    stepsEl.innerHTML = '';
+    l.forEach(function(s, i){
+      var li = document.createElement('li');
       var b = document.createElement('button');
       b.type = 'button';
-      b.setAttribute('aria-label', 'Plate ' + SEC[app] + '.' + (i + 1));
-      if (i === idx) b.setAttribute('aria-current','true');
-      b.addEventListener('click', function(){ idx = i; draw(); });
-      pips.appendChild(b);
+      b.innerHTML = '<span>' + (i < 9 ? '0' : '') + (i + 1) + '</span>';
+      b.appendChild(document.createTextNode(s.dataset.t));
+      if (i === idx) b.setAttribute('aria-current','step');
+      b.tabIndex = (i === idx) ? 0 : -1;
+      b.addEventListener('click', function(){ idx = i; draw(true); });
+      li.appendChild(b);
+      stepsEl.appendChild(li);
     });
+    if (focusStep) {
+      var btn = stepsEl.querySelector('[aria-current="step"]');
+      if (btn) { btn.focus({preventScroll:true}); btn.scrollIntoView({block:'nearest',inline:'nearest'}); }
+    }
   }
 
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){
-      tabs.forEach(function(x){ x.setAttribute('aria-selected','false'); });
-      t.setAttribute('aria-selected','true');
-      app = t.dataset.app;
-      idx = 0;
-      draw();
+  stepsEl.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight'){ e.preventDefault(); idx++; draw(true); }
+    if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft'){  e.preventDefault(); idx--; draw(true); }
+  });
+
+  function selectTab(t){
+    tabs.forEach(function(x){ x.setAttribute('aria-selected','false'); x.tabIndex = -1; });
+    t.setAttribute('aria-selected','true'); t.tabIndex = 0;
+    panel.setAttribute('aria-labelledby', t.id);
+    app = t.dataset.app; idx = 0; draw(false);
+  }
+  tabs.forEach(function(t, i){
+    t.tabIndex = i === 0 ? 0 : -1;
+    t.addEventListener('click', function(){ selectTab(t); });
+    t.addEventListener('keydown', function(e){
+      var n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      if (e.key === 'ArrowLeft')  n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (n){ e.preventDefault(); n.focus(); selectTab(n); }
     });
   });
-  document.getElementById('prevBtn').addEventListener('click', function(){ idx--; draw(); });
-  document.getElementById('nextBtn').addEventListener('click', function(){ idx++; draw(); });
+  draw(false);
 
-  draw();
+  /* ── copy email ── */
+  var copyBtn = document.getElementById('copyBtn'), live = document.getElementById('copyLive'), tmr;
+  copyBtn.addEventListener('click', function(){
+    var v = copyBtn.dataset.email;
+    function ok(){
+      copyBtn.textContent = 'Copied'; copyBtn.classList.add('done'); live.textContent = 'Email address copied';
+      clearTimeout(tmr);
+      tmr = setTimeout(function(){ copyBtn.textContent = 'Copy'; copyBtn.classList.remove('done'); live.textContent = ''; }, 1600);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(v).then(ok, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement('textarea'); ta.value = v; ta.setAttribute('readonly','');
+      ta.style.position = 'absolute'; ta.style.left = '-9999px'; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); ok(); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  });
 })();
 </script>
 </body>
