@@ -391,6 +391,8 @@ footer.foot .sp{margin-left:auto}
   .prac article:nth-child(odd){padding-right:0}
   .prac article{grid-template-columns:40px 1fr}
   .hh{grid-template-columns:minmax(0,1fr)}
+  .apps{overflow-x:auto;scrollbar-width:none}
+  .apps button{padding:10px 9px;font-size:12.5px}
   .hh .devcol{grid-row:auto;grid-column:auto;order:2}
   .hh .listcol{order:1}
   .cap{order:3}
@@ -455,7 +457,7 @@ footer.foot .sp{margin-left:auto}
       <ol>
         <li><a href="#a01"><span class="code">A-01</span><span class="nm">Inventory management<small>Flutter · v1.4.9 · 120 branches</small></span><span class="st ok">Live</span></a></li>
         <li><a href="#a02"><span class="code">A-02</span><span class="nm">Deposit slip uploader<small>Kotlin · v1.2.3 · 120 branches</small></span><span class="st ok">Live</span></a></li>
-        <li><a href="#a03"><span class="code">A-03</span><span class="nm">Warehouse transfer<small>Kotlin · v0.6 · pre-pilot</small></span><span class="st test">Test</span></a></li>
+        <li><a href="#a03"><span class="code">A-03</span><span class="nm">Pick and Check<small>Kotlin · v0.6 · pre-pilot</small></span><span class="st test">Test</span></a></li>
       </ol>
       <div class="floor-foot"><span><b>387</b> tests</span><span>CI on every push</span><span>Sentry in all three</span></div>
     </aside>
@@ -605,7 +607,7 @@ footer.foot .sp{margin-left:auto}
     <article class="file" id="a03" aria-labelledby="a03-h">
       <header class="label">
         <span class="code ghost">A-03</span>
-        <h3 id="a03-h">Warehouse transfer</h3>
+        <h3 id="a03-h">Pick and Check</h3>
         <span class="lm">Kotlin · Compose · CameraX · Room · v0.6</span>
         <span class="st test">Test build</span>
       </header>
@@ -618,7 +620,7 @@ footer.foot .sp{margin-left:auto}
           <dt>Stack</dt><dd>Kotlin, Jetpack Compose, CameraX, ML Kit barcode, Room, T-SQL, n8n, SAP Service Layer</dd>
         </dl>
         <div class="fmain">
-          <p class="lead">A replacement for the transfer module of an old desktop app, built for warehouse checkers who walk the aisles, unlike the desktop PC.</p>
+          <p class="lead">A warehouse picking app for stock transfers, replacing the transfer module of an old desktop app. Pickers scan in the aisles, a checker verifies every pick before it's submitted, and each transfer records who did both.</p>
           <p>Before building anything, I audited the old system and found two production bugs. A quantity check read the <b>requested</b> amount instead of the <b>remaining</b> amount, so a half-picked line could be picked again past its total. And on a slow connection, tapping submit twice created two real stock documents.</p>
           <p>The new app scans barcodes with the camera against an offline list of about 7,000 items, shows quantities in the checker's own unit, offers batches by nearest expiry, and posts to the ERP with retry. Each submission gets a key on the phone that is resent on every retry, and a pending-post record survives the app being killed between submit and post.</p>
 
@@ -652,7 +654,7 @@ footer.foot .sp{margin-left:auto}
         <div class="apps" role="tablist" aria-label="Choose a system">
           <button role="tab" id="t-inv" aria-selected="true" aria-controls="hh-panel" data-app="inv">A-01 Inventory</button>
           <button role="tab" id="t-dse" aria-selected="false" aria-controls="hh-panel" data-app="dse">A-02 Deposits</button>
-          <button role="tab" id="t-dcs" aria-selected="false" aria-controls="hh-panel" data-app="dcs">A-03 Transfer</button>
+          <button role="tab" id="t-dcs" aria-selected="false" aria-controls="hh-panel" data-app="dcs">A-03 Pick &amp; Check</button>
         </div>
         <ol class="steps" id="steps" aria-label="Screens"></ol>
       </div>
@@ -1004,7 +1006,7 @@ footer.foot .sp{margin-left:auto}
   var panel   = document.getElementById('hh-panel');
   var capK = document.getElementById('capK'), capT = document.getElementById('capT'), capC = document.getElementById('capC');
   var devName = document.getElementById('devName'), devStep = document.getElementById('devStep');
-  var NAMES = {inv:'A-01 · inventory', dse:'A-02 · deposits', dcs:'A-03 · transfer'};
+  var NAMES = {inv:'A-01 · inventory', dse:'A-02 · deposits', dcs:'A-03 · pick and check'};
   var app = 'inv', idx = 0;
 
   function list(){ return screens.filter(function(s){ return s.dataset.app === app; }); }
